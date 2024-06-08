@@ -193,3 +193,43 @@ Os operadores lógicos representam o recurso que nos permite criar expressões l
 ---
 
 # Métodos
+
+Uma classe é definida por atributos e métodos. Já vimos que atributos são, em sua grande maioria, variáveis de diferentes tipos e valores. Os métodos, por sua vez, correspondem a **funções** e **sub-rotinas** disponíveis dentro de nossas classes.
+
+## Critério de nomeação de Métodos
+
+Esses critérios não são obrigatórios, mas é recomendável que sejam seguidos, pois essas convenções facilitam a vida dos programadores ao trabalharem em códigos de forma colaborativa. Ao seguir estas convenções, tornamos o código mais legível para nós e também para outras pessoas. Para métodos, os critérios são:
+
+* Deve ser nomeado como verbo
+* Seguir o padrão camelCase
+
+Exemplos sugeridos para nomeclatura de métodos:
+
+    somar(int n1, int n2){}
+
+    abrirConexão(){}
+
+    concluirProcessamento(){}
+
+    findById(int id){}
+
+    calcularImprimir(){} // há algo errado neste método,
+                            ele deveria fazer somente uma coisa
+
+## Critério de definição de métodos
+
+Mas, como sabemos a melhor forma de definir os métodos das nossas classes? Para chegar à essa conclusão, somos auxiliados por uma convemção estrutural para todos os métodos. Essa convenção é determinada pelos aspectos abaixo:
+
+1. **Qual a proposta principal do método?** Você deve se perguntar constantemente até compreender a real finalidade do mesmo.
+2. **Qual o tipo de retorno esperado após executar o método?** Você deve analisar se o método será responsável por retornar algum valor ou não.
+*Caso o método não retorne nenhum valor, ele será representado pela palavra-chave `void`.*
+3. **Quais parâmetros serão necessários para execução do método?** Os métodos as vezes precisarão de argumentos como critérios para a execução.
+4. **O método possui risco de apresentar alguma exceção?** Exceções são comuns na execução de métodos, as vezes é necessário prever e tratar a possível existência de uma exceção.
+5. **Qual a visibilidade do método?** Será necessário que o método seja visível a toda aplicação, somente em mesmo pacotes, através de herança ou somente a nível da própria classe.
+
+Abaixo temos um exemplo de uma classe com métodos e suas respectivas considerações:
+![Métodos](images/metodos-consideracoes.png)
+
+---
+
+# Escopo
