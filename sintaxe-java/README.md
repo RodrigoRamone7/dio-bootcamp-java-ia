@@ -233,3 +233,190 @@ Abaixo temos um exemplo de uma classe com métodos e suas respectivas considera�
 ---
 
 # Escopo
+
+O escopo pode ser entendido como o ambiente onde uma variável pode ser acessada. Em Java, o escopo de variáveis **vai de acordo com o bloco onde ela foi declarada**.
+
+Variáveis quando criadas no primeiro acesso, só podem ser acessadas durante a execução do bloco de código, quando o interpretador sai da execução do bloco, tal variável não pode ser mais acessada.
+
+Exemplo de variáveis de escopo:
+![Classe conta](images/escopo-classe-conta.png)
+
+---
+
+# Palavras reservadas
+
+Palavras reservadas são identificadores de uma linguagem que já possuem uma finalidade específica, portanto não podem ser utilizados para nomear variáveis, classes, métodos ou atributos.
+
+Tais palavras reservadas são classificadas em grupos e escritas em minúsculo. A maioria das IDEs exibem elas com cores diferentes para identificação.
+
+## Controladores de Fluxo
+| Palavra Reservada | Descrição                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------|
+| `if`              | Testa uma condição lógica.                                                                         |
+| `else`            | Especifica a cláusula alternativa de um if statement.                                              |
+| `switch`          | Inicia um switch statement.                                                                        |
+| `case`            | Rotula uma constante no switch statement.                                                          |
+| `default`         | Especifica a cláusula padrão em um switch statement.                                               |
+| `while`           | Inicia um laço while.                                                                              |
+| `do`              | Inicia um laço do-while.                                                                           |
+| `for`             | Inicia um laço for.                                                                                |
+| `break`           | Interrompe o laço ou switch em execução.                                                           |
+| `continue`        | Continua a próxima iteração do laço.                                                               |
+| `return`          | Retorna um valor de um método.                                                                     |
+
+## Manipulação de Exceções
+| Palavra Reservada | Descrição                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------|
+| `try`             | Inicia um bloco de código que será monitorado quanto a exceções.                                   |
+| `catch`           | Captura exceções geradas por blocos try.                                                           |
+| `finally`         | Bloco de código, geralmente após um bloco try-catch, que é sempre executado, independentemente de uma exceção ter sido lançada ou não. |
+| `throw`           | Lança uma exceção.                                                                                 |
+| `throws`          | Declara que um método pode lançar exceções.                                                        |
+| `assert`          | Utilizado para fazer afirmações no código.                                                         |
+
+## Modificadores de Acesso
+| Palavra Reservada | Descrição                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------|
+| `private`         | Indica que um membro de uma classe é acessível apenas dentro da própria classe.                    |
+| `protected`       | Indica que um membro de uma classe é acessível dentro do mesmo pacote e por subclasses.            |
+| `public`          | Indica que um membro de uma classe é acessível por qualquer outra classe.                          |
+
+## Definição de Classes, Métodos e Variáveis
+| Palavra Reservada | Descrição                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------|
+| `class`           | Define uma classe.                                                                                 |
+| `interface`       | Define uma interface.                                                                              |
+| `extends`         | Indica que uma classe é derivada de outra classe ou interface.                                     |
+| `implements`      | Indica que uma classe implementa uma interface.                                                    |
+| `package`         | Define um pacote.                                                                                  |
+| `import`          | Importa pacotes ou classes para o código.                                                          |
+| `abstract`        | Especifica uma classe ou método abstrato.                                                          |
+| `final`           | Define entidades que não podem ser modificadas (variáveis, métodos, classes).                      |
+| `static`          | Indica que um membro de uma classe pertence à classe, em vez de a instâncias da classe.            |
+| `native`          | Indica que um método é implementado em código nativo usando JNI (Java Native Interface).           |
+| `strictfp`        | Restringe a precisão e arredondamento de cálculos de ponto flutuante para garantir portabilidade.  |
+| `synchronized`    | Indica que um método ou bloco de código deve ser sincronizado.                                     |
+| `transient`       | Indica que um campo não deve ser serializado.                                                      |
+| `volatile`        | Indica que um campo pode ser alterado por diferentes threads.                                      |
+
+## Tipos de Dados Primitivos
+| Palavra Reservada | Descrição                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------|
+| `boolean`         | Define um tipo de dado booleano, que pode ser true ou false.                                       |
+| `byte`            | Define um tipo de dado inteiro de 8 bits.                                                          |
+| `char`            | Define um tipo de dado caractere de 16 bits.                                                       |
+| `short`           | Define um tipo de dado inteiro de 16 bits.                                                         |
+| `int`             | Define um tipo de dado inteiro de 32 bits.                                                         |
+| `long`            | Define um tipo de dado inteiro de 64 bits.                                                         |
+| `float`           | Define um tipo de dado de ponto flutuante de 32 bits.                                              |
+| `double`          | Define um tipo de dado de ponto flutuante de 64 bits.                                              |
+
+## Literais e Outros
+| Palavra Reservada | Descrição                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------|
+| `null`            | Literal que representa uma referência nula.                                                        |
+| `true`            | Literal que representa o valor booleano verdadeiro.                                                |
+| `false`           | Literal que representa o valor booleano falso.                                                     |
+| `this`            | Refere-se à instância atual de um objeto.                                                          |
+| `super`           | Refere-se à superclasse imediata de um objeto.                                                     |
+| `enum`            | Define um tipo de dado enumerado.                                                                  |
+
+---
+
+# Java Doc
+
+Uma das maiores características da linguagem Java é que desde suas primeiras versões tínhamos em nossas mãos uma documentação rica e detalhada dos recusos da linguagem.
+
+Conforme site oficial, podemos compreender e explorar todos os recursos organizados por pacotes e classes bem específicas sem nem mesmo escrever uma linha de código.
+
+Ser um desenvolvedor avançado requer compreender a documentação da linguagem e de frameworks que compoem o projeto.
+
+[Documentação oficial Java](https://docs.oracle.com/en/java/)
+
+## Tags
+
+Java Documentation é composto por tags que representam dados relevantes para a compreensão da proposta de uma classe e os conjuntos de seus métodos e atributos conforme tabela abaixo:
+
+| Tag          | Descrição                                                                                   | Exemplo                                                                                 |
+|--------------|---------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| `@author`    | Especifica o autor da classe ou método.                                                     | `@author John Doe`                                                                      |
+| `@deprecated`| Indica que a classe ou método está obsoleto e não deve ser usado.                           | `@deprecated This method is deprecated.`                                                |
+| `@exception` | Sinônimo de `@throws`.                                                                     | `@exception IOException if an input/output error occurs.`                               |
+| `{@inheritDoc}`| Indica que a descrição do método deve ser herdada da superclasse ou interface.          | `{@inheritDoc}`                                                                         |
+| `@link`      | Insere um link para outra classe ou método.                                                 | `@link java.util.List`                                                                  |
+| `@linkplain` | Igual ao `@link`, mas o texto de link aparece como texto normal.                            | `@linkplain java.util.List`                                                             |
+| `@param`     | Descreve um parâmetro do método ou construtor.                                              | `@param args the command line arguments`                                                |
+| `@return`    | Descreve o valor de retorno de um método.                                                   | `@return the result of the calculation`                                                 |
+| `@see`       | Referencia outra classe ou método relacionado.                                              | `@see java.lang.String`                                                                 |
+| `@serial`    | Descreve um campo que faz parte da serialização.                                            | `@serial`                                                                               |
+| `@serialData`| Descreve os dados escritos por métodos `writeObject` ou `writeExternal`.                    | `@serialData Data written to the stream`                                                |
+| `@serialField`| Descreve um campo serializável.                                                           | `@serialField width int the width of the object`                                        |
+| `@since`     | Indica a versão desde a qual a classe ou método foi adicionada.                             | `@since 1.5`                                                                            |
+| `@throws`    | Descreve uma exceção que um método pode lançar.                                             | `@throws IOException if an input/output error occurs.`                                  |
+| `@version`   | Especifica a versão da classe ou método.                                                    | `@version 1.0`                                                                          |
+
+Abaixo está a classe Calculadora que ilustra o uso das Tags em códigos:
+
+![Exemplo de documentação](images/javadoc-calculadora.png)
+
+Se passarmos o mouse em cima do método ou da classe, podemos ver a documentação escrita.
+![Documentação da classe calculadora](images/javadoc-calculadora-doc.png)
+![Documentação do método somar](images/javadoc-calculadora-doc-somar.png)
+
+## Javadoc
+
+**Javadoc** é um gerador de documentação criado pela Sun Microsystems para documentar a API dos programas em Java, a partir do código-fonte. O resultado é expresso em HTML. É constituído, basicamente, por algumas marcações muito simples inseridas nos comentários do programa.
+
+Este sistema é o padrão de documentação de classes em Java, e muitas das IDEs desta linguagem irão automaticamente gerar um Javadoc em HTML.
+
+Criando nossa documentação de forma automática para disponibilizar via web.
+
+    No terminal execute o comando abaixo
+
+    javadoc -encoding UTF-8 -docencoding ISO-8859-1 -d ../docs src/*.java
+
+---
+
+# Terminal e Argumentos
+
+Executar programas em Java pode ser uma tarefa um pouco complexa para pessoas leigas que não possuem conhecimento com IDEs de desenvolvimento, portanto devemos utilizar comandos no terminar para que seja possível a execução destes programas.
+
+Com a JVM devidamente configurada, nós podemos criar um executável do nosso programa e disponibilizar o instalador de qualquer sistema operacional.
+
+No nosso caso iremos aprender como executar um programa Java via terminal como MS-DOS ou terminal do VsCode.
+
+Vamos criar um novo projeto e classe MinhaClasse que apenas executa um print no terminal.
+![Código MinhaClasse](images/terminal-argumentos-minhaclasse.png)
+Na IDE IntelliJ, podemos executar pelo botão de play a nossa classe, mas não é o que queremos neste momento.
+
+![ByteCode MinhaClasse](images/terminal-argumentos-bytecode.png)
+Observe que ao executar o projeto pela IDE, foi gerado um novo diretório `out/productions/java-terminal` onde se localiza nossa classe em bytecode `MinhaClasse.class`. Estes são os nossos arquivos compilados do projeto.
+
+## Terminal
+
+Em nosso terminal(da IDE/cmd do windows/powershell), vamos executar uma classe java sem a utilização da IDE.
+
+1. Abra o MS-DOS, PowerShell ou o terminal da IDE
+2. Localize o diretório do seu projeto: `cd G:\repositorios\dio-bootcamp-java-ia\sintaxe-java\java-terminal\`
+3. Acesse a pasta *out* e navegue até a pasta do bytecode do projeto: `cd out\production\java-terminal`
+4. Agora digite o comando: `java MinhaClasse`
+![Executando MinhaClasse](images/terminal-argumentos-minhaclasse-terminal.png)
+
+## Argumentos
+
+Quando executamos uma classe que contenha um método main, o mesmo permite que passemos um array `[]` de argumentos do tipo String. Logo podemos após a definição da classe a ser executada informar estes parâmetros, exemplo:
+
+    java MinhaClasse argumentoUm argumentoDois
+
+Abaixo temos um exemplo de código que utiliza os argumentos do nosso método main:
+![main com argumentos](images/terminal-argumentos-aboutme.png)
+
+Ao executarmos o bytecode deste código pelo terminal, podemos ver o uso dos argumentos.
+![Argumentos no terminal](images/terminal-argumentos-aboutme-terminal.png)
+
+## Scanner
+
+Vimos anteriormente que utilizamos argumentos para que seja possível realizar interações com o nosso programa, mas isso não é muito intuitivo para o caso de alguém mais leigo. Para isso o Java conta com a classe **Scanner**.
+
+Veja abaixo um exemplo da classe AboutMe utilizando o Scanner para receber entrada de dados:
+![AboutMe com scanner](images/terminal-argumentos-aboutme-scanner.png)
