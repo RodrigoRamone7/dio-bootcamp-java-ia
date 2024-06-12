@@ -420,3 +420,138 @@ Vimos anteriormente que utilizamos argumentos para que seja possível realizar i
 
 Veja abaixo um exemplo da classe AboutMe utilizando o Scanner para receber entrada de dados:
 ![AboutMe com scanner](images/terminal-argumentos-aboutme-scanner.png)
+
+---
+
+# Estruturas Condicionais
+
+A Estrutura Condicional possibilita a escolha de um grupo de ações e comportamentos a serem executados quando determinadas condições são ou não satisfeitas. A Estrutura COndicional pode ser **Simples** ou **Composta**.
+
+Controle de fluxo é a habilidade de ajustar a maneira como um programa realiza suas tarefas. Por meio de intruções especiais, chamadas de comandos, essas tarefas podem ser executadas seletivamente, repetidamente ou excepcionalmente.
+
+## Condicional Simples (if)
+
+Quando ocorre uma validação de execução de fluxo somente quando a condição for positiva, consideramos como ma estrutura **Simples**, exemplo:
+
+![Estrutura condicional If](images/estrutura-condicional-if.png)
+Aqui temos uma estrutura condicional IF simples, que ao ter o resultado da expressão `valorSolicitado <= saldo` verdadeiro, vai executar o bloco de código seguinte.
+
+## Condicional Composta (if-else)
+
+Algumas vezes o nosso programa deverá seguir mais de uma jornada de execução condicionado a uma regra de negócio, este cenário é denominado **Estrutura Condicional Composta**. Vejamos o exemplo abaixo:
+
+![Estrutura condicional else](images/estrutura-condicional-if-else.png)
+No exemplo acima temos uma estrutura if-else que verifica se a condição da nota do aluno é verdadeira ou falsa. Se (if) verdadeira o aluno estará aprovado, se não (else), o aluno estará reprovado.
+
+## Condicional Escadeada (else-if)
+
+Em um controle de fluxo condicional, nem sempre nos limitamos ao **se** (if) e **senão** (else), poderemos ter uma terceira, quarta e ou inúmeras condições.
+
+![Estrutura condicional else-if](images/estrutura-condicional-else-if.png)
+No nosso mesmo algoritmo de `ResultadoEscolar` adicionamos mais uma condicional (else if) para caso o aluno fique com nota entre 5 e 7, que neste caso estará de recuperação.
+
+## Condicional Ternária
+
+Como vimos em operadores, podemos abreviar nosso algoritmo condicional refatorando com o conceito de operador ternário. Vamos refatorar o exemplo acima para ilustrar o poder deste recurso:
+
+### Ternário simples
+![Operador ternário](images/estrutura-condicional-ternario.png)
+No exemplo acima temos o mesmo algoritmo de **Condicional Simples**, mas que agora não mais necessita de um bloco de código para uma condição que pode ser verdadeira ou falsa.
+
+### Ternário Composto
+![Operador ternário composto](images/estrutura-condicional-ternario-composto.png)
+Também podemos utilizar uma estrutura **Condicional Composta** no operador ternário como no exemplo acima. Tal estrurura necessita de um segundo ponto de interrogação para chamar a condicional **If-Else** e assim passar o valor dela caso verdadeira.
+
+## Estrutura Switch Case
+
+A estrutura **switch** compara o valor de cada caso com o da variável sequencialmente, e sempre que encontra um valor correspondente, executa o código associado ao caso. Para evitar que as comparações continuem a ser executadas após um caso correspondente ter sido encontrado, acrescentamos o comando **break** no final de cada bloco de códigos. O comando **break**, quando executado, encerra a execução da estrutura onde ele se econtra.
+
+Vejamos um exemplo:
+![Estrutura Switch Case](images/estrutura-condicional-switch-case.png)
+No exemplo acima temos um sistema que retorna o tamanho de acordo com a sigla fornecida. Poderiamos utilizar a estrutura **Else-If** para obter o mesmo resultado, mas deste modo temos de uma maneira mais clara como a estrutura se comporta sem blocos encadeados.
+
+---
+
+# Estruturas de Repetição
+
+Laços de repetição, também conhecidos como laços de iteração ou simplesmente loops, são comandos que permitem iteração de código, ou seja, que comandos presentes no bloco sejam repetidos diversas vezes.
+
+## For
+
+O comando **`for`** permite que uma variável contadora seja testada e incrementada a cada iteração, sendo essas informações definidas na chamada do comando.
+
+A estrutura de sintaxe de controle de repetição **`for`** é exibida abaixo:
+
+    for (bloco de inicialização; expressão booleana de validação; bloco de atualização) {
+        Comando que será executado até que
+        a expressão de validação torne-se falsa
+    }
+
+Vejamos um exemplo de estrutura **for**:
+
+![Estrutura de repetição For](images/estrutura-repeticao-for.png)
+Na imagem acima temos um laço de repetição que conta carneirinhos até que chegue a 20. Observe que a variável `carneirinhos` se inicia com o valor 1 e vai sendo incrementada ao final da chamada do laço em `carneirinhos++`. Tal laço vai imprimir no console o resultado até que a variável chegue na condição `carneirinhos <= 20`.
+
+### For em Arrays
+
+Também utilizamos o controle de fluxo **`for`** para interagir sobre arrays e conleções:
+
+![Estrutura for em arrays](images/estrutura-repeticao-for-array.png)
+No exemplo acima temos uma estrutura de repetição for que percorre o array `alunos` e imprime no console o aluno correspondente a possição no array determinado por `x`.
+
+### For Each
+
+O uso do **`for / each`** está fortemente relacionado com um cenário onde contenha um array ou coleção, e assim, a interação é baseada nos elementos da coleção.
+
+Vejamos um exemplo:
+![Estrutura For Each](images/estrutura-repeticao-for-each.png)
+Na imagem acima temos o mesmo array do exemplo anterior, porém, utilizamos a estrutura **For Each** para percorrer o array, onde cada interação será armazenada na variável aluno e para cada elemento presente em alunos, será executado o bloco de código.
+Note que na estrutura **For Each** não temos variável de interação, portanto ela depende do tamanho do array.
+
+## Break e Continue
+
+O comando **`break`** interrompe o laço, já o **`continue`** interrompe somente a iteração atual.
+
+Vejamos um exemplo de loop com break:
+
+![Loop com break](images/estrutura-repeticao-break.png)
+Na imagem acima temos um loop que ao chegar na condicional **if** vai interromper o loop e sair do bloco. Tendo como resultado no console `1 e 2` somente.
+
+Vejamos agora um exemplo de loop com continue:
+
+![Loop com continue](images/estrutura-repeticao-continue.png)
+Assim como no exemplo anterior, teremos o mesmo loop, porém, agora temos o continue que ao chegar na condição não executará o bloco de sequencia, mas voltará para o loop de iteração. Portanto o resultado será `1, 2, 4 e 5` não tendo exeutado somente o 3 pois a condicional foi satisfeita.
+
+## While
+
+O laço **`while`** testa uma condição antes de executar o código e enquanto esta condição foi verdadeira o bloco será executado.
+
+A estrutura de sintaxe de controle de repetição **`while`** é exibida abaixo:
+
+    while (expressão booleana de validação){
+        comando que será executado até que a
+        expressão da validação torne-se falsa
+    }
+
+Vejamos um exemplo abaixo:
+
+![Estrutura while](images/estrutura-repeticao-while.png)
+Na imagem acima temos um algoritmo que executará a subtração do `valorDoce` da variável `mesada` enquanto esta tiver valor maior que zero. Fizemos um método `valorAleatorio()` para nos auxiliar a receber um valor de doce entre 2 e 8.
+
+## Do While
+
+O laço **`do / while`** funciona de forma parecida com o laço **`while`**, mas garante que o bloco de código seja executado pelo menos uma vez diante da condição estabelecida.
+
+A estrutura de sintaxe do controle de repetição **`do / while`** é exibida abaixo:
+
+    do {
+        comando que será executado até que a 
+        expressão de validação torne-se falsa
+    } while (expressão booleana de validação);
+
+Vejamos um exemplo abaixo:
+
+![Estrutura Do While](images/estrutura-repeticao-do-whike.png)
+Na imagem acima temos um algoritmo que simula uma ligação. Escrevemos o método `tocando()` que retorna de forma aleatória um valor booleano para caso ele atender o telefone. Observando a estrutura **`do / while`** podemos notar que a linha de comando 9 é executada pelo menos uma vez antes que a condição seja testada.
+
+---
