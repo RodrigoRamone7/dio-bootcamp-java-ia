@@ -555,3 +555,63 @@ Vejamos um exemplo abaixo:
 Na imagem acima temos um algoritmo que simula uma ligação. Escrevemos o método `tocando()` que retorna de forma aleatória um valor booleano para caso ele atender o telefone. Observando a estrutura **`do / while`** podemos notar que a linha de comando 9 é executada pelo menos uma vez antes que a condição seja testada.
 
 ---
+
+# Estruturas Excepcionais
+
+## Exceções
+
+Ao executar o código Java, diferentes erros podem acontecer: erros de codificação feitos pelo programador, erros devido a entrada errada ou imprevistos.
+
+Quando ocorre um erro, o Java normalmente para e gera uma mensagem de erro. O termo técnico para isso é: Java lançará uma **Exceção** (jogará um erro).
+
+De forma interpretativa em Java, um erro é algo irreparável, a aplicação trava ou é encerrada drasticamente. Ja exceções é um fluxo inesperado da nossa aplicação, exemplo: Querer dividir um valor por zero, querer abrir um arquivo que não existe, abrir uma conexão de banco com usuário ou senha inválida. Todos estes cenários e os demais não são erros mas sim fluxos não previstos pela aplicação.
+
+É aí que entra mais uma responsabilidade do desenvolvedor, prever sutuações iguais a estas e realizar o que denominamos de __*Tratamento de Exceções*__.
+
+## Try/Catch
+
+Vamos voltar à nossa classe AboutMe criada no curso de Terminal e Argumentos e utilizar esta classe como exemplo para o tratamento de exceções.
+
+![Classe AboutMe](images/terminal-argumentos-aboutme-scanner.png)
+
+Aparentemente é um programa simples, mas valos listar alguns possíveis exceções que podem acontecer.
+
+* Não informar o nome e sobrenome
+* O valor de idade ter um caractere NÃO numérico
+* O valor da altura ter uma vírgula ao invés de ser um ponto **(Conforme padrão americano)**
+
+### Conhecendo algumas exceções já mapeadas
+
+A linguagem Java dispõe de uma vasta lista de casses que representam exceções, abaixo iremos apresentar as mais comnuns:
+
+| Nome | Causa |
+| --- | --- |
+|`java.lang.NullPointerException` | Quando tentamos obter alguma informação de uma variável nula. |
+|`java.lang.ArithmeticException` | Quando tentamos dividir um valor por zero. |
+|`java.sql.SQLException` | Quando existe algum erro relacionado a interação com o banco de dados. |
+|`java.io.FileNotFoundException` | Quando tentamos ler ou escrever em um arquivo que não existe. |
+
+### Tratamento de exceções
+
+Quando uma exceção indevitavel ocorre, temos que trata-la.
+
+A instrução **`try`** permite que você defina um bloco de código para ser testado quanto a erros enquanto está sendo executado.
+
+A instrução **`catch`** permite definir um bloco de código a ser executado caso ocorra um erro no bloco try.
+
+A instrução **`finally`** permite definir um bloco de código a ser executado independente de ocorrer um erro ou não. As palavras chave `try` e `catch` vêm em pares:
+
+Estrutura de um bloco try e catch
+
+    try{
+        // bloco de código conforme esperado
+    }
+    catch(Exception e){ // precisamos saber qual exceção
+        // bloco de código que captura as exceções que podem acontecer
+        // em caso de um fluxo não previsto
+    }
+
+Voltando a nossa classe `AboutMe`
+
+![Classe AboutMe com try/catch](images/estruturas-excepcionais-try-catch.png)
+Agora temos todo nosso código inserido dentro do bloco `try`, desta forma ele está sendo monitorado em sua execução e no momento que uma exceção ocorre, ao invés de aparecer um erro de código do Java, uma mensagem será exibida de acordo com a exceção esperada pelo bloco `catch`, que neste caso ocorre quando há uma entrada de dados inesperada em idade ou altura.
