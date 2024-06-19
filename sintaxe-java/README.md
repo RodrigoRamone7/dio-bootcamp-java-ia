@@ -615,3 +615,42 @@ Voltando a nossa classe `AboutMe`
 
 ![Classe AboutMe com try/catch](images/estruturas-excepcionais-try-catch.png)
 Agora temos todo nosso código inserido dentro do bloco `try`, desta forma ele está sendo monitorado em sua execução e no momento que uma exceção ocorre, ao invés de aparecer um erro de código do Java, uma mensagem será exibida de acordo com a exceção esperada pelo bloco `catch`, que neste caso ocorre quando há uma entrada de dados inesperada em idade ou altura.
+
+## Hierarquia das exceções
+
+A linguagem Java dispõe de uma variedade de classes que representam exceções, e estas classes são organizadas em uma hierarquia denomadas **Checked and Unchecked Exceptions**.
+
+O que determina uma exceção ser classificada como **checada** ou **não checada**?
+É o risco dela ser disparada e logo você precisa tratá-la, exemplo:
+
+![Hierarquia de exceções](images/estruturas-excepcionais-excecoes-hierarquia-1.png)
+Na imagem acima, estamos tentando converter uma string para um valor numérico. Podemos notar que temos dentro desta string um caractere não numérico.
+
+![Exceção](images/estruturas-excepcionais-excecoes-format.png)
+Ao executarmos este código vamos nos deparar com uma `NumberFormatException`. Pois um caractere não numérico não pode ser convertido para um valor numérico.
+
+![Método ValueOf](images/estruturas-excepcionais-valueof.png)
+Se explorarmos o método `.ValueOf` podemos notar que ele dispara uma exceção na linha 613 em `throws NumberFormarException`.
+
+![Utilizando NumberFormat](images/estruturas-excepcionais-excecoes-hierarquia-2.png)
+Utilizando a classe `NumberFormat`, teremos também um erro ao tentar converter a string para número, entretando a IDE já nos sugere envolver este código em um bloco `try / catch`.
+
+![Envolvendo em try catch](images/estruturas-excepcionais-try-catch-1.png)
+Clicando em `More actions...` podemos ver a sugestão e ua prévia de como ficará o código.
+
+![Código em try catch](images/estruturas-excepcionais-try-catch-2.png)
+Por fim teremos o nosso código com a exceção tratada.
+
+### Excções customizadas
+
+Nós podemos criar nossas próprias exceções baseadas em regras de negócio e assim melhor direcionar quem for utilizar os recursos desenvolvidos no projeto, exemplo:
+
+* Imagina que como regra de negócio, para formatar um cep necessita sempre de ter 8 dígitos, caso contrário lançara uma exceção que denominamos de **CepInvalidoException**.
+* Primeiro criamos nossa exceção:
+![Exceção customizada](images/estruturas-excepcionais-excecoes-customizadas.png)
+* As exceções customizadas levam de herança a classe exceptione podem ou não serem armazenadas em um arquivo separado.
+
+![Utilizando exceção customizada](images/estruturas-excepcionais-excecoes-customizadas-1.png)
+Definindo a função `formatarCep`, declaramos que esta função lança uma exceção em `throws CepInvalidoException` na linha 9.
+Ao executarmos a função no bloco `main`, esta função deve estar envolvida em bloco `try` para que seja monitorada.
+Ao executar o código ele deve disparar uma exceção caso a condição da linha 10 não seja verdadeira.
