@@ -641,7 +641,7 @@ Clicando em `More actions...` podemos ver a sugestão e ua prévia de como ficar
 ![Código em try catch](images/estruturas-excepcionais-try-catch-2.png)
 Por fim teremos o nosso código com a exceção tratada.
 
-### Excções customizadas
+### Exceções customizadas
 
 Nós podemos criar nossas próprias exceções baseadas em regras de negócio e assim melhor direcionar quem for utilizar os recursos desenvolvidos no projeto, exemplo:
 
