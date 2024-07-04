@@ -156,6 +156,13 @@ Definimos nas classes `Almoxarife` e `Atendente` que os métodos `controlarSaida
 ![Cliente private](images/visibilidade-recursos-cliente-private.png)
 Por fim retiramos da classe `Cliente` o método `pegarPedidoBalcao`, pois definimos que esta ação é responsabilidade somente do `Atendente` e o método `consultarSaldoAplicativo` passa a ser privado pois se trata de uma ação sigilosa que outras classes não podem ter acesso.
 
+#### Modificador protected
+
+Este modificador funciona de forma parecida ao modificador `private`, mas no modificador `private` as classes filhas não podem utilizar estes métodos, é aí que vem o modificador `protected`.
+
+![Modificador Protected](images/abstracao-classe-abstrata.png)
+Nesta classe possuimos dois métodos `protected` que podem ser utilizados por suas classes filhas, mas estão protegidos do uso em outras partes do projeto, portanto nenhuma outra classe que não seja filha desta classe abstrada ou que não pertença ao mesmo pacote poderá utilizar estes métodos.
+
 ## Getter e Setter
 
 Seguindo a convensão Java Beans
@@ -260,7 +267,7 @@ Em diagrama a estrutura das classes é constituída por:
 
 ##### Relacionamentos
 
-Em um diagrama as classes podem existir deforma independete, mas obviamente haverá em alguma etapa da aplicação a necessidade de algumas se relacionarem, o que devemos compreender é o nível de dependência entre elas:
+Em um diagrama as classes podem existir de forma independete, mas obviamente haverá em alguma etapa da aplicação a necessidade de algumas se relacionarem, o que devemos compreender é o nível de dependência entre elas:
 
 ###### Associação
 
@@ -297,4 +304,108 @@ Os atributos e métodos de uma classe podem receber níves de visibilidade, e na
 
 ![Representação de uma classe UML](images/uml-representacao.png)
 
+---
 
+# Pilares da POO
+
+**Programação orientada a objetos** (**POO**, ou **OOP** segundo as suas siglas em inglês) é um paradigma de programação baseado no conceito de "objetos", que podem conter dados na forma de campos, tambpem conhecidos como métodos.
+
+Como se trata de um conexto análogo ao mundo real, tudo no qual nos referimos são objetos. Exemplo: Conta Bancária, Aluno, Veículo, Transferência etc.
+
+A programação orientada a objetos é bem requisitada no contexto das aplicações mais atuais no mercado devido a possibilidade de reutilização de código e a capacidade de representação do sistema ser muito mais próximo do mundo real.
+
+Para uma linguagem ser considerada orientada a objetos, este deve seguir o que denominamos como **Os quatro pilares da orientação a objetos**:
+
+* **Encapsulamento**: Nem tudo precisa estar visível, grande parte do nosso algoritmo pode ser distribuído em métodos com finalidades específicas que complementa uma ação em nossa aplicação.
+Exemplo: Ligar um veículo exige muitas etapas para a engenharia, mas o condutor só visualiza a ignição, dar a partida e a "magia" acontece.
+
+* **Herança**: Características e comportamentos comuns podem ser elevados e compartilhados através de uma hierarquia de objetos.
+Exemplo: Um Carro e uma Motocicleta possuem propriedades como chassi, ano de fabricação e métodos como acelerar, frear. Logo para não ser um processo de codificação redundante, podemos desfrutar da herança criando uma classe **Veiculo** para que seja herdada por Carro e Motocicleta.
+
+* **Abstração**: É a indisponibilidade para determinar a lógica de um ou vários comportamentos em um objeto.
+Exemplo: **Veículo** determina duas ações como acelerar e frar, logo estes comportamentos deverão ser asbtratos pois existem mais de uma maneira de se realizar a mesma operação. Ver *Polimorfismo*.
+
+* **Polimorfismo**: São as inúmeras maneiras de se ralizar uma mesma ação.
+Exemplo: Veículo determina duas ações como acelerar e frar, primeiramente precisamos identificar se estaremos nos referindo a **Carro** ou **Motocicleta** para determinar a lógica de aceleração e frenagem dos respectivos veículos.
+
+Para ilustrar a proposta dos Princípios de POO no nosso quotidiano, vamos simular algumas funcionalidades dos aplicativos de mensagens instantâneas pela internet.
+
+Vamos descrever em UML e depois em código algumas das principais funcionalidade de qualquer serviço de comunicação instantânea pela internet, inicialmente pelo MSN Messenger e depois inserindo os demais, considerando os princípios de POO.
+
+![Classe MSNMessenger em UML](images/MSNMessenger-UML.png)
+
+![Código MSNMessenger](images/MSNMessenger-class.png)
+
+**Pontos de atenção**
+* Todos os métodos da classe são **public** (tudo realmente precisa estar visível?)
+* Só existe uma única forma de se comunicar via internet (como ter novas formas de se comunicar mantendo a proposta central?)
+
+## Encapsulamento
+*Nem tudo precisa estar disponível para todos*
+
+Já imaginou você instalar o MSN Messenger e ao querer enviar uma mensagem, te fosse solicitado verificar se o computador está conectado a internet e depoism pedir para você salvar a mensagem no histórico? Ou, se ao tentar enviar um SMS pelo celular, primeiro você precisasse consultar manualmente o seu saldo?
+
+Acredito que não seria uma experiência tão agradáveç de ser executada recorrentemente por nós usuários.
+
+Mesmo ainda sendo necessária algumas etapas nos processos citados, não é um requisito uma visibilidade pública, isso quer dizer que, além da própria classe que possui a responsabilidade de uma determinada ação.
+
+Quanto ao MSN Messenger, para nós, só é relevante saber que podemos e como devemos enviar e receber a mensagem, logo, as demais funcionalidades poderão ser consideradas privadas (private). E é aí que se caracteriza a necessidade do pilar Encapsulamento, o que esconder?
+
+Vejamos a refatoração abaixo da nossa classe MSN Messenger
+
+![MSN encapsulado](images/encapsulamento-msnmessenger.png)
+
+![MSN classe](images/encapsulamento-msnmessenger-class.png)
+Definindo os métodos `validarConectadoInternet` e `salvarHistoricoMensagem` como privado, essas não estão mais disponíveis para o usuário, portanto chamamos esses métodos nas funções `enviarMensagem` e `receberMensagem` para que essas verificações ocorram de maneira automática e escondendo o funcionamento dessas funções por meio do encapsulamento.
+
+## Herança
+*Nem tudo se copia, as vezes se herda*
+
+Já imaginou você ter sido classificado para a vaga de emprego de seus sonhos e como desafio, justamente você criar um diagrama de classes e em seguida os respectivos arquivos .java que apresentasse os fundamentos de POO com base no contexto de vários aplicativos de mensagens instantâneas?
+
+![Messengers](images/heranca-uml-messengers.png)
+Para dar os primeiros passos nesse processo seletivo, você poderia simplesmente copiar as 3 classes e colar em seus respectivos projetos.
+
+Agora é escrever o código das classes acima e esperar pela contratação.
+
+Mas infelizmente essa não é a melhor alternativa para resolver este problema.
+
+Além de uma compreensão do desafio, é necessário, que tenhamos domínio dos pilares de POO e aplicá-los em situações iguais a esta.
+
+**Note**: Todas as três classes possuem a mesma estrutura comportamental, e diste deste contexto se encaixa perfeitamente o segundo pilar da POO, a Herança.
+
+![Herança do serviço de mensagem](images/heranca-uml-servico-mensagem.png)
+
+Diante deste diagrama de herança teremos agora uma estrutura de projeto onde cada aplicativo de mensagem herda as características da classe `ServicoMensagemInstantanea`, promovendo o reaproveitamento do código sem precisar reescreve-lo.
+
+![Projeto herdado](images/heranca-codigo-herdado.png)
+Note que as três classes de aplicativos de mensagem utilizam a palavra reservada `extends` para apontar para classe pai e assim herdar o nosso código que antes estava dentro da própria classe do aplicativo.
+
+## Abstração
+*Para você ser é preciso você fazer*
+
+Sabemos que qualquer sistema de mensagens instantâneas se realiza as mesmas operações de Enviar e Receber Mensagem, dentre outras operações comund ou exclusivas de cada aplicativo disponível no mercado.
+
+Mas será se as ações realizadas contém o mesmo comportamento? Acreditamos que não.
+
+O que vale destacar para compreender aqui é que todo e qualquer sistema de mensagem precisa sim no mínimo Enviar e Receber Mensagem, logo, consideramos se firmar um "contrato" para qualquer um que queira se apresentar assim para o mercado.
+
+Observem a nova estruturação dos códigos abaixo com base na implementação apresentada no pilar Herança.
+
+![Classe abstrata](images/abstracao-classe-abstrata.png)
+Vamos definir a classe `ServicoMensagemInstantanea` como uma classe asbtrata e os dois métodos `private` da classe passam a ser `protected` para que seja possível a sua utilização em suas classes filha.
+_**Note que os métodos abstratos não possuem corpo.**_
+
+![Implementando classe abstrata](images/abstracao-implementando.png)
+Agora que definimos a classe pai como abstrata, será obrigatória a implementação da lógica em cada uma de suas classes filhas, pois cada aplicativo que herda desta classe abstrata tem uma maneira diferente de fazer a mesma coisa.
+
+## Polimorfismo
+*Um mesmo comportamento de várias maneiras*
+
+Podemos observar no contexto de *Abstração* e *Herança* que conseguimos criar uma singularidade estrutural de nossos elementos. Isso quer dizer que qualquer classe que deseja representar um serviço de mensagens, basta estender a classe `ServicoMensagemInstantanea` e implementar os respectivos métodos *abstratos*. O que vale reforçar aqui é, cada classe terá a mesma ação executando procedimentos de maneira especializada.
+
+![O que é polimorfismo](images/polimorfismo-oquee.png)
+
+Implementando o polimorfismo em nosso projeto:
+![Polimorfismo na prática](images/polimorfismo-implementado.png)
+Podemos definir condicionais para que as classes especializadas sejam instanciadas a partir da escolha do usuário, mas todas elas possuem o método `enviarMensagem()` e `receberMensagem()` pois se tratam de uma classe especializada de uma classe abstrata.
