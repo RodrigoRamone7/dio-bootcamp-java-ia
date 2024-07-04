@@ -409,3 +409,45 @@ Podemos observar no contexto de *Abstração* e *Herança* que conseguimos criar
 Implementando o polimorfismo em nosso projeto:
 ![Polimorfismo na prática](images/polimorfismo-implementado.png)
 Podemos definir condicionais para que as classes especializadas sejam instanciadas a partir da escolha do usuário, mas todas elas possuem o método `enviarMensagem()` e `receberMensagem()` pois se tratam de uma classe especializada de uma classe abstrata.
+
+## Interface
+
+Como vimos anteriormente **Herança** é um dos pilares de POO, mas uma coriosidade que se deve ser esclarecida na linguagem Java é que a mesma não permite o que conhecemos como **Herança Múltipla**.
+
+Á medida que vão surgindo novas necessidades, novos equipamentos (objetos) nascem para atender as expectativas de oferecer ferramentas com finalidades bem específicas como por exemplo: Impressoras, Digitalizadoras, Copiadoras e etc.
+
+Observem que não há uma especificação de marca, modelo e ou capacidade de execução das classes citadas acima, isto é o que consideramos o nível mais abstrato de orientação a objetos que denominamos como **interfaces**.
+
+Um dos maiores questionamentos dos desenvolvedores é se **interfaces** são o mesmo que **classes**, ou um molde para representação dos objetos reais.
+
+Como citado acima Java não permite herança múltipla, logo, vamos imaginar que recebemos o desafio de projetar uma nova classe para criar objetos que representem as três características citadas acima e que iremos denominar de **EquipamentoMultifuncional**.
+
+Para uma melhor compreensão, vamos analisar os diagramas de classes abaixo, comparando o conceito de herança entre classes e interfaces.
+
+**Cenário 1**
+
+![Exemplo de herança abstrata](images/interface-impressoras-abstract.png)
+Exemplo de aplicação de Herança entre classes abstratas.
+
+**Cenário 2**
+
+![Exemplo de herança múltipla](images/interface-equipamento-multifuncional.png)
+Ilustração do uso de interfaces para aplicar Herança Múltipla.
+
+
+**Implementando Interfaces**
+
+Precisamos compreender que métodos de interface já são implicitamente **`public abstract`**, portanto é obrigatória a sua implementação entre outras classes.
+![Interface definida](images/interface-definidas.png)
+
+Ao invés da palavra reservada `extends` para definir uma herança, agora a classe utiliza `implements`, pois cada classe implementa a interface e seu próprio algoritmo.
+![Interface implementada](images/interface-implementada.png)
+
+A interface possibilita que uma única classe implemente várias interfaces, possibilitando que a classe `EquipamentoMultifuncional`, implemente as classes `Copiadora, Digitalizadora, Impressora` e faça as três funções definidas nas interfaces.
+![Multiplas interfaces](images/interface-multifuncional.png)
+
+Seguindo a lógica de herança das interfaces, podemos notar que um `EquipamentoMultifuncional`, pode ser atribuido a `Impressora, Digitalizadora, Copiadora` pois tal equipamento faz as três funções.
+![Fabrica de Impressoras](images/interface-fabrica.png)
+
+Mas se instanciarmos um `Scanner` logo observamos que não pode haver atribuição com `Impressora, Copiadora`, pois tal interface não implementa esta classe, pois apenas a `Digitalizadora` implementa uma interface `Scanner`.
+![Scanner não é uma impressora, nem copiadora](images/interface-fabrica-scanner.png)
