@@ -21,21 +21,21 @@ __1. [Constribuindo em um Projeto Open Source no Github](https://github.com/Rodr
     - [x] Desafios de Projetos: Crie Um Portfólio Vencedor
     - [x] Contribuindo em um Projeto Open Source no GitHub
 
-- [ ] __*Dominando a Linguagem de Programação Java*__
+- [x] __*Dominando a Linguagem de Programação Java*__
 
-    - [ ] Aprendendo a Sintaxe Java
-    - [ ] Introdução e Estruturas Condicionais com Java
-    - [ ] Estruturas de Repetição em Java
-    - [ ] Java e Tratamento de Exceções
-    - [ ] Debugging Java
-    - [ ] Desafios de Código: Aperfeiçoe Sua Lógica e Pensamento Computacional
-    - [ ] Explorando Desafios de Códigos Básicos em Java
+    - [x] Aprendendo a Sintaxe Java
+    - [x] Introdução e Estruturas Condicionais com Java
+    - [x] Estruturas de Repetição em Java
+    - [x] Java e Tratamento de Exceções
+    - [x] Debugging Java
+    - [x] Desafios de Código: Aperfeiçoe Sua Lógica e Pensamento Computacional
+    - [x] Explorando Desafios de Códigos Básicos em Java
 
 - [ ] __*Orientação a Objetos e Eficiência na Manipulação de Dados em Java*__
 
-    - [ ] Fundamentos da Programação Orientada a Objetos com Java
-    - [ ] Pilares da Programação Orientada a Objetos em Java
-    - [ ] Modelando o iPhone com UML: Funções de Músicas, Chamadas e Internet
+    - [x] Fundamentos da Programação Orientada a Objetos com Java
+    - [x] Pilares da Programação Orientada a Objetos em Java
+    - [x] Modelando o iPhone com UML: Funções de Músicas, Chamadas e Internet
     - [ ] Conhecendo Collections Java
     - [ ] Ganhando Produtividade com Stream API
     - [ ] Criando um Banco Digital com Java e Orientação a Objetos
