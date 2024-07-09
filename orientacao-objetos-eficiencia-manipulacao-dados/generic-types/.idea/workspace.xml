@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f8552004-ad66-4825-97cb-80f7bf2c9b70" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections-api-java.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/comparableXcomparator/Livro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/comparableXcomparator/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/generics/GenericsExempleList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/generics/GenericsExempleMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/generics/GenericsExempleSet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/list/operacoesBasicas/CarrinhoDeCompras.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/list/operacoesBasicas/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/list/operacoesBasicas/ListaTarefas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/list/operacoesBasicas/Mercado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/list/operacoesBasicas/OrganizadorTarefas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/list/operacoesBasicas/Tarefa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2ixtM62EdetIVuDtieeEqf4SVzZ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.GenericsExempleList.executor": "Run",
+    "Application.Mercado.executor": "Run",
+    "Application.OrganizadorTarefas.executor": "Run",
+    "Application.main.java.list.operacoesBasicas.Mercado.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "G:/repositorios/dio-bootcamp-java-ia/orientacao-objetos-eficiencia-manipulacao-dados/generic-types/src/main/java/comparableXcomparator/Main.java"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.main.java.list.operacoesBasicas.Mercado">
+    <configuration name="GenericsExempleList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.generics.GenericsExempleList" />
+      <module name="collections-api-java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Mercado" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="UNNAMED_CLASS_CONFIGURATION" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Mercado" />
+      <module name="collections-api-java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrganizadorTarefas" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.list.operacoesBasicas.OrganizadorTarefas" />
+      <module name="collections-api-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.list.operacoesBasicas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main.java.list.operacoesBasicas.Mercado" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.list.operacoesBasicas.Mercado" />
+      <module name="collections-api-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.list.operacoesBasicas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.main.java.list.operacoesBasicas.Mercado" />
+        <item itemvalue="Application.OrganizadorTarefas" />
+        <item itemvalue="Application.Mercado" />
+        <item itemvalue="Application.GenericsExempleList" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f8552004-ad66-4825-97cb-80f7bf2c9b70" name="Changes" comment="" />
+      <created>1720444006617</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1720444006617</updated>
+    </task>
+    <servers />
+  </component>
+</project>
