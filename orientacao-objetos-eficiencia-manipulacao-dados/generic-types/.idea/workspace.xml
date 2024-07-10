@@ -5,23 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8552004-ad66-4825-97cb-80f7bf2c9b70" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections-api-java.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/comparableXcomparator/Livro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/comparableXcomparator/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/generics/GenericsExempleList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/generics/GenericsExempleMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/generics/GenericsExempleSet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/list/operacoesBasicas/CarrinhoDeCompras.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/list/operacoesBasicas/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/list/operacoesBasicas/ListaTarefas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/list/operacoesBasicas/Mercado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/list/operacoesBasicas/OrganizadorTarefas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/list/operacoesBasicas/Tarefa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/list/pesquisa/CatalogoLivros.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/list/pesquisa/Livro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
