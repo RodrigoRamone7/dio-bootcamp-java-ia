@@ -662,6 +662,8 @@ A classe `Tarefa` por sua vez possue a propriedade `descricao` e se inicializa c
 
 #### Operações Básicas
 
+Para exemplificar as operações básicas com ArrayList estaremos utilizando a abstração de uma lista de tarefas.
+
 ##### Adicionando elementos ao ArrayList
 
 A operação mais básica de um ArrayList é a de adicionar elementos.
@@ -711,3 +713,81 @@ Agora temos o método `toString` que passa a retornar o objeto e suas propriedad
 Ao chamar o método novamente podemos observar que foi impresso no console algo parecido com um arquivo JSON que está de acordo com o método que sobrescrevemos na classe `Tarefa`.
 
 #### Pesquisa
+
+Para exemplificar a pesquisa em ArrayList vamos utilizar a abstração de um catálogo de livros.
+
+![Catálogo de Livros](images/list-arraylist-construtor.png)
+Como no exemplo anterior, vamos definir um construtor para instanciar uma lista vazia e teremos um método `adicionarLivro` para inserir objetos nesta lista.
+
+##### Pesquisa por propriedade em ArrayList
+
+Podemos realizar uma pesquisa dentro de um ArrayList por meio de uma propriedade contida nos objetos presentes na lista.
+
+![Pesquisa por autor](images/list-arraylist-pesquisa-autor.png)
+Neste exemplo vamos definir primeiramente uma condicional para verificar se a lista está vazia em `!catalogoLivros.isEmpty()`.
+Seguindo faremos um laço forEach e para cada propriedade `autor` correspondente ao argumento passado para o nosso método, adicionamos este elemento à uma nova lista.
+Por fim retornamos uma lista com todos os livros escritos por tal autor.
+
+![Pesquisa por título](images/list-arraylist-pesquisa-titulo.png)
+A mesma lógica pode ser aplicada para uma pesquisa por título. Neste caso queremos apenas o primeiro valor que for encontrado dentro do ArrayList, então utilizamos um `break;` para interromper o laço e retornar o valor do livro que corresponde ao argumento passado para o método.
+
+##### Pesquisa por intervalo em ArrayList
+
+Podemos fazer uma pesquisa por intervalo de tempo utilizando o operador lógico **`E`**.
+
+![Pesquisa por intervalo de tempo](images/list-arraylist-pesquisa-intervalo.png)
+Como nos exemplos anteriores, utilizamos o laço forEach para percorrer a lista e para cada elemento que é maior ou igual ao `anoInicial` **`E`** menor ou igual ao `anoFinal` será adicionado à lista e o método retornará esta lista com os livros dentro deste intervalo.
+
+#### Ordenação
+
+Para exemplificar a ordenação de um ArrayList vamos utilizar a abstração de um sistema de cadastro de pessoas.
+
+![Ordenação de pessoas](images/list-arraylist-ordenacao.png)
+Como nos exemplos anteriores, definimos o construtor para instanciar a lista e um método para adicionar pessoas.
+
+##### Ordenando ArrayList com interface Comparable
+
+Neste exemplo estaremos implementando um método para ordenar uma lista de pessoas por idade.
+Para utilizar a interface Comparable primeiramente precisamos implementa-la em nossa classe Pessoa.
+
+![Implementando Comparable](images/list-arraylist-comparable-implementando.png)
+Implementando a classe `Comparable` devemos passar o Generic Type a ela, que neste caso é a nossa própria classe `<Pessoa>`. Então dessa forma implementamos o método `compareTo(Pessoa p)`, onde `p` representa o nosso objeto a ser comparado.
+Utilizaremos também o Class wrapper `Integer` que possui o método `compare`, que por sí só já faz uma comparação entre dois números e identifica qual é o maior entre eles. Por fim este método recebe nossa propriedade `idade` e a compara com nosso objeto por meio do método `getIdade()`.
+
+![Ordenando por idade](images/list-arraylist-ordenacao-por-idade.png)
+Em nosso método `ordenarPorIdade()` vamos instanciar uma nova lista que diferente de outros casos não vai receber um ArrayList vazio, mas sim nossa `listaPessoas` que até o momento não está ordenada.
+Utilizando a classe `Collection` o método `.sort()` vai receber esta lista e como implementamos um `Comparable` em nossa classe, este método já sabe como será feita esta comparação, portanto o retorno será uma lista de pessoas ordenadas por idade.
+
+##### Ordenando ArrayList com Comparator
+
+Neste exemplo estaremos implementando um método para ordenar a lista por altura utilizando um Comparator.
+Para utilizar o Comparator devemos implementar uma classe Comparator dentro da nossa classe `Pessoa`.
+
+![Implementando Comparator](images/list-arraylist-comparator-implement.png)
+Ao implementar a classe `ComparatorPorAltura`, será necessário implementar algum método da classe `Comparator`.
+
+![Implementando Compare](images/list-arraylist-comparator-implement-compare.png)
+Vamos sobrescrever o método `compare()` que recebe dois objetos como argumento, então utilizando o `compare()` da Class Wrapper `Double` passamos os dois valores que serão comparados. Neste caso é o valor de altura por meio do método `.getAltura()`.
+
+![Implementando Ordenar por Altura](images/list-arraylist-comparator-poraltura.png)
+Em nosso método vamos instanciar a nossa lista ordenada e com a classe `Collections` utilizamos o método `.sort()`, mas dessa vez utilizaremos uma sobrecarga de método.
+O método `.sort()` passa a receber a lista a ser ordenada e instanciamos um objeto comparador, que neste caso é a classe `ComparatorPorAltura` que escrevemos lá na nossa classe `Pessoa`.
+
+## Set Interface
+
+<p align="center">
+<img src="images/set-interface-hierarchy.png" alt="Set interface hierarchy Java"><br>
+<a href="https://data-flair.training/blogs/collection-framework-in-java/">Hierarchy of Collection Framework in Java </a>
+</p>
+
+- A interface `Set` é uma coleção que não pode conter elementos duplicados.
+- Essa interface representa o conceito matemático de um conjunto e é usada para representar conjuntos, como um baralho de cartas.
+- A plataforma Java possui três implementações de `Set` de uso geral: `HashSet`, `TreeSet` e `LinkedHashSet`.
+- A interface `Set` não permite acesso aleatório a um elemento na coleção.
+- Para percorrer os elementos de um `Set`, você pode usar um iterador ou um loop foreach.
+
+> ##### *HashSet*: O HashSet é uma implementação da interface Set que armazena os elementos em uma tabela hash. Ele não mantém uma ordem específica dos elementos. A principal vantagem do HashSet é que ele oferece um desempenho de busca muito eficiente, pois usa funções hash para indexar os elementos. No entanto, a ordem em que os elementos são adicionados pode não ser preservada ao percorrer o conjunto.
+
+> ##### *TreeSet*: O TreeSet é uma implementação da interface Set que armazena os elementos em uma árvore binária balanceada. Isso significa que os elementos são armazenados em uma ordem classificada e são mantidos automaticamente em ordem crescente. A principal vantagem do TreeSet é que os elementos são sempre retornados na ordem classificada, o que facilita a obtenção de elementos em uma determinada ordem. No entanto, a busca e a inserção são um pouco mais lentas em comparação com o HashSet.
+
+> ##### *LinkedHashSet*: O LinkedHashSet é uma implementação da interface Set que mantém a ordem de inserção dos elementos, além de usar uma tabela hash para obter um bom desempenho de busca. Ele é semelhante ao HashSet, mas também mantém uma lista duplamente vinculada que preserva a ordem de inserção. Isso permite que os elementos sejam percorridos na ordem em que foram adicionados. O LinkedHashSet é útil quando você precisa manter a ordem de inserção dos elementos e também ter um bom desempenho de busca.

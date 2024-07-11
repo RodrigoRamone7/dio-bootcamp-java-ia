@@ -18,8 +18,9 @@ public class CatalogoLivros {
         List<Livro> livrosPorAutor = new ArrayList<>();
         if (!catalogoLivros.isEmpty()){
             for (Livro livro : catalogoLivros){
-                if(livro.getAutor().equalsIgnoreCase(autor));
+                if(livro.getAutor().equalsIgnoreCase(autor)){
                 livrosPorAutor.add(livro);
+                }
             }
         }
         return livrosPorAutor;
@@ -42,12 +43,17 @@ public class CatalogoLivros {
         Livro livroPorTitulo = null;
         if (!catalogoLivros.isEmpty()){
             for (Livro livro : catalogoLivros){
-                if(livro.getTitulo().equalsIgnoreCase(titulo));
-                livroPorTitulo = livro;
+                if(livro.getTitulo().equalsIgnoreCase(titulo)) {
+                    livroPorTitulo = livro;
+                }
                 break;
             }
         }
 
         return livroPorTitulo;
+    }
+
+    public void listaDeLivros(){
+        System.out.println(catalogoLivros);
     }
 }

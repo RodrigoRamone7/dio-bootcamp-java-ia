@@ -27,6 +27,6 @@ public class Livro {
     public String toString() {
         return  "titulo='" + titulo + '\'' +
                 ", autor='" + autor + '\'' +
-                ", anoPublicacao=" + anoPublicacao;
+                ", anoPublicacao=" + anoPublicacao + "\n";
     }
 }

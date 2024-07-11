@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8552004-ad66-4825-97cb-80f7bf2c9b70" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/list/pesquisa/CatalogoLivros.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/list/pesquisa/Livro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/list/ordenacao/CadastroPessoas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/list/ordenacao/OrdenacaoPessoas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/list/ordenacao/Pessoa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/list/pesquisa/Livraria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/list/pesquisa/CatalogoLivros.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/list/pesquisa/CatalogoLivros.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/list/pesquisa/Livro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/list/pesquisa/Livro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +43,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.CadastroPessoas.executor": "Run",
     "Application.GenericsExempleList.executor": "Run",
+    "Application.Livraria.executor": "Run",
     "Application.Mercado.executor": "Run",
     "Application.OrganizadorTarefas.executor": "Run",
     "Application.main.java.list.operacoesBasicas.Mercado.executor": "Run",
@@ -50,10 +57,29 @@
     "onboarding.tips.debug.path": "G:/repositorios/dio-bootcamp-java-ia/orientacao-objetos-eficiencia-manipulacao-dados/generic-types/src/main/java/comparableXcomparator/Main.java"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.main.java.list.operacoesBasicas.Mercado">
-    <configuration name="GenericsExempleList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.java.generics.GenericsExempleList" />
+  <component name="RunManager" selected="Application.CadastroPessoas">
+    <configuration name="CadastroPessoas" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.list.ordenacao.CadastroPessoas" />
       <module name="collections-api-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.list.ordenacao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Livraria" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.list.pesquisa.Livraria" />
+      <module name="collections-api-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.list.pesquisa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -94,10 +120,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CadastroPessoas" />
+        <item itemvalue="Application.Livraria" />
         <item itemvalue="Application.main.java.list.operacoesBasicas.Mercado" />
         <item itemvalue="Application.OrganizadorTarefas" />
         <item itemvalue="Application.Mercado" />
-        <item itemvalue="Application.GenericsExempleList" />
       </list>
     </recent_temporary>
   </component>
