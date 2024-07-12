@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8552004-ad66-4825-97cb-80f7bf2c9b70" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/list/ordenacao/CadastroPessoas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/list/ordenacao/OrdenacaoPessoas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/list/ordenacao/Pessoa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/list/pesquisa/Livraria.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/set/operacoesBasicas/ConjuntoConvidados.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/set/operacoesBasicas/Convidado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/set/operacoesBasicas/Recepcao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/set/pesquisa/AgendaContatos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/set/pesquisa/Contato.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/list/pesquisa/CatalogoLivros.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/list/pesquisa/CatalogoLivros.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/list/pesquisa/Livro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/list/pesquisa/Livro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +47,7 @@
     "Application.Livraria.executor": "Run",
     "Application.Mercado.executor": "Run",
     "Application.OrganizadorTarefas.executor": "Run",
+    "Application.Recepcao.executor": "Run",
     "Application.main.java.list.operacoesBasicas.Mercado.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -57,7 +57,7 @@
     "onboarding.tips.debug.path": "G:/repositorios/dio-bootcamp-java-ia/orientacao-objetos-eficiencia-manipulacao-dados/generic-types/src/main/java/comparableXcomparator/Main.java"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.CadastroPessoas">
+  <component name="RunManager" selected="Application.Recepcao">
     <configuration name="CadastroPessoas" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.java.list.ordenacao.CadastroPessoas" />
       <module name="collections-api-java" />
@@ -84,20 +84,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Mercado" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="UNNAMED_CLASS_CONFIGURATION" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Mercado" />
-      <module name="collections-api-java" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="OrganizadorTarefas" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.java.list.operacoesBasicas.OrganizadorTarefas" />
       <module name="collections-api-java" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.java.list.operacoesBasicas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Recepcao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.set.operacoesBasicas.Recepcao" />
+      <module name="collections-api-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.set.operacoesBasicas.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -120,11 +125,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Recepcao" />
         <item itemvalue="Application.CadastroPessoas" />
         <item itemvalue="Application.Livraria" />
         <item itemvalue="Application.main.java.list.operacoesBasicas.Mercado" />
         <item itemvalue="Application.OrganizadorTarefas" />
-        <item itemvalue="Application.Mercado" />
       </list>
     </recent_temporary>
   </component>

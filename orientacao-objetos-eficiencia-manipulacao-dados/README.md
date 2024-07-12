@@ -791,3 +791,68 @@ O método `.sort()` passa a receber a lista a ser ordenada e instanciamos um obj
 > ##### *TreeSet*: O TreeSet é uma implementação da interface Set que armazena os elementos em uma árvore binária balanceada. Isso significa que os elementos são armazenados em uma ordem classificada e são mantidos automaticamente em ordem crescente. A principal vantagem do TreeSet é que os elementos são sempre retornados na ordem classificada, o que facilita a obtenção de elementos em uma determinada ordem. No entanto, a busca e a inserção são um pouco mais lentas em comparação com o HashSet.
 
 > ##### *LinkedHashSet*: O LinkedHashSet é uma implementação da interface Set que mantém a ordem de inserção dos elementos, além de usar uma tabela hash para obter um bom desempenho de busca. Ele é semelhante ao HashSet, mas também mantém uma lista duplamente vinculada que preserva a ordem de inserção. Isso permite que os elementos sejam percorridos na ordem em que foram adicionados. O LinkedHashSet é útil quando você precisa manter a ordem de inserção dos elementos e também ter um bom desempenho de busca.
+
+### HashSet
+
+Para começarmos, vamos explorar as funções básicas de um HashSet.
+
+Primeiramente devemos instanciar esse HashSet por meio de um construtor e uma variável privada seguindo a convenção Java Beans.
+
+![Instanciando o HashSet](images/list-set-hashset.png)
+Vamos definir um `Set` de `Convidado` e um construtor que vai instanciar um `HashSet<>`.
+
+![Classe Convidado](images/list-set-convidado.png)
+A classe `Convidado` por sua vez possui as propriedades `nome` e `codigoConvite`, um construtor para atribuir valor à essas propriedades, métodos `get` para obter estes valores e o método `toString` sobrescrito para caso precisemos imprimir este set no console.
+
+#### Operações Básicas com HashSet
+
+##### Adicionando elementos ao HashSet
+
+Assim como no ArrayList, o HashSet também possui um método `.add()`, mas com algumas particularidades.
+
+![Método add no HashSet](images/list-set-add-elemento.png)
+O método `.add()` no HashSet não possui argumento para adicionar um valor em determinada posição, pois o mesmo sempre será atribuido à uma posição aleatória.
+
+![Método adicionarConvidado](images/list-set-add-convidado.png)
+Desta forma podemos adicionar um elemento ao HashSet da mesma forma que fazemos em um ArrayList.
+
+##### Removendo elementos de um HashSet pela propriedade
+
+Relembrando que em um HashSet não pode haver elementos repetidos e a forma como vamos diferenciar estes elementos é por meio da propriedade `codigoConvite`.
+
+![Removendo convidado por código do convite](images/list-set-remove-por-codigo.png)
+Vamos percorrer esse HashSet e ao encontrar o elemento que tem o código correspondente ao argumento passado pela função, este objeto será armazenado na variável `convidadoParaRemover` e assim este valor será passado para o método `.remove()` do nosso HashSet.
+
+##### Definindo chave primária no HashSet
+
+Como mencionado anteriormente, o HashSet é um conjunto de objetos que não podem se repetir, portanto precisam de uma propriedade que o torne único. Em um contexto de Banco de Dados isso se chama chave primária. Apesar das outras propriedades ser possível repetir estas informações.
+
+Vamos definir como chave primária a nossa propriedade `codigoConvite` da na classe `Convidado`.
+
+1. Na IDE InjelliJ pressione **`Alt+Insert`**
+2. Selecione **`equals() and hashCode()`**
+![Equals and HashCode](images/list-hashset-equals-hashcode.png)
+3. Mantenha o template Java 7 and higher e pressione Next
+![Template Java7](images/set-equals-hashcode-template.png)
+4. Selecione a propriedade que deseja definir como chave primária e pressione Next
+![Propriedade](images/set-equals-hashcode-propriedade.png)
+*Será definida qual propriedade não pode ser igual*
+5. Selecione a propriedade e pressione Next
+![HashCode](images/set-equals-hashcode.png)
+*Esta será a propriedade que vai gerar o HashCode*
+
+![Equals e HashCode](images/set-metodos-equals-hashcode.png)
+A IDE vai sobrescrever os dois métodos utilizando nossa propriedade `codigoConvite`.
+A partir destes dois métodos sempre que for adicionado um novo convidado ao nosso HashSet, será verificado se já não existe este `codigoConvite` dentro do HashSet. Caso existir o mesmo não será adicionado e então o elemento original vai persistir.
+*Isso vai evitar que um individuo mal intencionado com convite clonado entre em nossa lista de convidados.*
+
+#### Pesquisa em HashSet
+
+Para este exemplo vamos utilizar a abstração de uma Agenda de contatos.
+
+![Defidindo classes](images/set-agenda-contatos.png)
+Definimos as a classe `Contato` com seus métodos Get e sobrescrevemos o método `toString`
+e a classe `AgendaContatos` com os métodos de adicionar e exibir.
+
+##### Pesquisando elementos por Propriedade em HashSet
+
