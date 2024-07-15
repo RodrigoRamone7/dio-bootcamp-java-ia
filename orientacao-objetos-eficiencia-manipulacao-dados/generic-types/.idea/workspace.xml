@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8552004-ad66-4825-97cb-80f7bf2c9b70" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/set/operacoesBasicas/ConjuntoConvidados.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/set/operacoesBasicas/Convidado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/set/operacoesBasicas/Recepcao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/set/pesquisa/AgendaContatos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/set/pesquisa/Contato.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/map/operacoesBasicas/AgendaContatos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/set/ordenacao/CadastroProdutos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/set/ordenacao/Mercadinho.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/set/ordenacao/Produto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/set/pesquisa/AppLigacoes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/set/pesquisa/AgendaContatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/set/pesquisa/AgendaContatos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/set/pesquisa/Contato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/set/pesquisa/Contato.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +44,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.AppLigacoes.executor": "Run",
     "Application.CadastroPessoas.executor": "Run",
     "Application.GenericsExempleList.executor": "Run",
     "Application.Livraria.executor": "Run",
+    "Application.Mercadinho.executor": "Run",
     "Application.Mercado.executor": "Run",
     "Application.OrganizadorTarefas.executor": "Run",
     "Application.Recepcao.executor": "Run",
@@ -57,7 +61,20 @@
     "onboarding.tips.debug.path": "G:/repositorios/dio-bootcamp-java-ia/orientacao-objetos-eficiencia-manipulacao-dados/generic-types/src/main/java/comparableXcomparator/Main.java"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Recepcao">
+  <component name="RunManager" selected="Application.Mercadinho">
+    <configuration name="AppLigacoes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.set.pesquisa.AppLigacoes" />
+      <module name="collections-api-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.set.pesquisa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CadastroPessoas" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.java.list.ordenacao.CadastroPessoas" />
       <module name="collections-api-java" />
@@ -84,12 +101,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrganizadorTarefas" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.java.list.operacoesBasicas.OrganizadorTarefas" />
+    <configuration name="Mercadinho" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.set.ordenacao.Mercadinho" />
       <module name="collections-api-java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.java.list.operacoesBasicas.*" />
+          <option name="PATTERN" value="main.java.set.ordenacao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -110,26 +127,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main.java.list.operacoesBasicas.Mercado" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.java.list.operacoesBasicas.Mercado" />
-      <module name="collections-api-java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.java.list.operacoesBasicas.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Mercadinho" />
+        <item itemvalue="Application.AppLigacoes" />
         <item itemvalue="Application.Recepcao" />
         <item itemvalue="Application.CadastroPessoas" />
         <item itemvalue="Application.Livraria" />
-        <item itemvalue="Application.main.java.list.operacoesBasicas.Mercado" />
-        <item itemvalue="Application.OrganizadorTarefas" />
       </list>
     </recent_temporary>
   </component>

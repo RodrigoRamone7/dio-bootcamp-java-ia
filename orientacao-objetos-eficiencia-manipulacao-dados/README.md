@@ -856,3 +856,102 @@ e a classe `AgendaContatos` com os métodos de adicionar e exibir.
 
 ##### Pesquisando elementos por Propriedade em HashSet
 
+Primeiramente vamos definir em nossa classe `Contato` qual será a propriedade que será utilizada como chave primária.
+
+![Definindo chave primária](images/set-pesquisa-equals-hash.png)
+Em nosso exemplo vamos definir que a chave primária será a propriedade `nome` portanto esta não poderá ser repetida em nosso set.
+
+![Método pesquisarPorNome](images/set-pesquisa-nome.png)
+Implementando nosso método, podemos observar que seguimos uma estrutura muito parecida com os métodos de pesquisa em ArrayList. Neste método, queremos que retorne os contatos que começam com o nome por meio do método `.startsWith()`.
+Diferente o método `.equalsIgnoreCase()` que utilizamos anteriormente, neste caso vamos retornar todos os contatos que começam com o `nome` inserido em nosso argumento.
+
+##### Alterando elemento por Propriedade em HashSet
+
+Para atualizar um contato em nosso set, primeiramente vamos precisar definir um método set em nossa classe `Contato`.
+
+![Método set em Contato](images/set-setter-contato.png)
+
+Na implementação do nosso método, devemos passar como argumento exatamente o nome que queremos alterar, portanto vamos utilizar o método `.equalsIgnoreCase()`.
+
+![Atualizando contato](images/set-atualizando-contato.png)
+Por fim após encontrar o nome desejado, utilizamos nosso setter para alterar e armazenamos este contato atualizado em nossa variável `contatoAtualizado` e a retornamos.
+
+#### Ordenação em HashSet
+
+Para exemplificar a ordenação de elementos em HashSet, vamos abstrair um sistema de cadastro de produtos.
+
+![Classes produto e cadastro de produto](images/set-ordenacao.png)
+Definimos as classes `Produto` e `CadastroProduto` e seus respectivos métodos get, nossa chave primária será o código do produto e implementamos um método para adicionar produtos.
+
+##### Ordenação por ordem alfabética em HashSet
+
+Para ordenar um set por ordem alfabética, primeiramente precisamos implementar um `Comparable` na nossa classe `Produto`.
+
+![Comparable para nome](images/set-ordenacao-nome-comparable.png)
+Implementando a classe `Comparable`, utilizamos o método `.compareToIgnoreCase()` da class wrapper `String` com `produto.getNome()` como parâmetro, tal método vai comparar se a string anterior fica antes ou após a string atual.
+
+![Método de ordenação](images/set-ordenacao-nome-treeset.png)
+Como vimos anteriormente, um HashSet não pode ser ordenado pois armazena os elementos de forma aleatória, portanto devemos instanciar um `TreeSet<>()` para que seja possível esta ordenação.
+Como definimos o `Comparable` anteriormente, precisamos apenas passar uma Collection como parâmetro na instanciação destre TreeSet, pois definimos a ordem natural deste Set.
+Por fim retornamos este Set ordenado por ordem alfabética.
+
+##### Ordenação por valores em HashSet
+
+Para ordenar um set por valores (neste caso preço), vamos primeiramente implementar um `Comparator` em nossa classe `Produto`.
+
+![Comparador por Preço](images/set-ordenacao-comparator.png)
+Definimos a classe `ComparatorPorPreco` e o método `compare` utiliza o método da class wrapper Double `.compare()` para receber os valores de preço do produto.
+
+![Método exibir por preço](images/set-ordenacao-comparator-preco.png)
+Por fim em nosso método vamos instanciar um TreeSet passando como argumento o nosso `ComparatorPorPreco()` e utilizamos o método `addAll()` para receber o nosso `produtoSet`.
+
+## Map Interface
+
+<p align="center">
+<img src="images/map-interface-hierarchy.png" alt="Map interface hierarchy Java"><br>
+<a href="https://data-flair.training/blogs/collection-framework-in-java/">Hierarchy of Collection Framework in Java </a>
+</p>
+
+- A interface `Map` é usada para mapear dados na forma de chaves e valores.
+- O `Map` do Java é um objeto que mapeia chaves para valores.
+- Um `Map` não pode conter chaves duplicadas: cada chave pode mapear no máximo um valor.
+- A plataforma Java possui três implementações gerais de `Map`: `HashMap`, `TreeMap` e `LinkedHashMap`.
+- As operações básicas do `Map` são: `put` (inserir ou atualizar), `get` (obter), `containsKey` (verificar se contém uma chave), `containsValue` (verificar se contém um valor), `size` (obter o tamanho) e `isEmpty` (verificar se está vazio).
+
+> ##### *HashTable* é uma implementação antiga da interface Map no Java que é sincronizada e thread-safe, tornando-a adequada para uso em ambientes concorrentes. Ela não permite chaves ou valores nulos e os elementos não são mantidos em uma ordem específica.
+
+> ##### *LinkedHashMap*, por outro lado, é uma implementação da interface Map que preserva a ordem de inserção dos elementos. Cada elemento possui referências ao próximo e ao anterior, formando uma lista encadeada. Isso permite que os elementos sejam iterados na ordem em que foram inseridos. Além disso, o LinkedHashMap também permite chaves ou valores nulos.
+
+> ##### *HashMap* é uma implementação da interface Map que não mantém uma ordem específica dos elementos. Ele armazena os elementos internamente usando uma função de hash para melhorar a eficiência das operações de pesquisa e acesso. O HashMap também permite chaves ou valores nulos.
+
+### Operações básicas em Map
+
+Para este exemplo, vamos utilizar a abstração de uma agenda de contatos, mas diferente da agenda de contatos que fizemos no em HashSet, em Map não se faz necessário a criação de uma classe.
+
+![Map](images/map-instanciacao-generics.png)
+Note que os pares de chave/valor não aceitam tipos primitivos, portanto vamos utilizar as class wrappers String e Integer.
+
+#### Adicionando elementos ao Map
+
+Para adicionar elementos em um Map é muito parecido com as outras implementações de Collections.
+
+![Adicionando elementos](images/map-adicionar-elemento.png)
+A diferença está no método que se chama `.put()` e ele recebe os pares de chave/valor.
+*O método `put()` serve tanto para adicionar quanto para atualizar um elemento, portanto ao adicionar um elemento com uma chave existente, esta será substituida.*
+
+#### Removendo elementos do Map
+
+Podemos remover elementos de um Map passando apenas o valor da chave deste elemento.
+
+![Removendo elemento de um Map](images/map-remover.png)
+Note que diferente das interfaces anteriores, em um map não é necessário percorre-lo para encontrar este elemento, pois cada chave é única dentro de um Map.
+
+#### Pesquisando elemento pela chave em um Map
+
+Para encontrar um elemento dentro de um Map utilizamos a chave para isso.
+
+![Pesquisa de elementos em Map](images/map-pesquisa-nome.png)
+A interface Map possui um método `.get()` que retorna o valor da chave passada a ela.
+Neste exemplo utilizamos para retornar o valor do número correspondente a chave.
+
+
