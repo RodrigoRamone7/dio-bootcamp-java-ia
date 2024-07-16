@@ -647,7 +647,7 @@ class CompararAnoAutorTitulo implements Comparator<Livro> {
 
 > ##### *Vector*: O Vector é uma implementação antiga da interface List que é semelhante ao ArrayList, mas é sincronizada, ou seja, é thread-safe. Isso significa que várias threads podem manipular um objeto Vector ao mesmo tempo sem causar problemas de concorrência. No entanto, essa sincronização adiciona uma sobrecarga de desempenho, tornando o Vector menos eficiente do que o ArrayList em cenários em que a concorrência não é um problema. Por esse motivo, o uso do Vector é menos comum em aplicações modernas.
 
-### ArrayList
+### Operações Básicas com List
 
 Para começarmos, vamos explorar as funções básicas de um ArrayList.
 
@@ -660,18 +660,16 @@ O Construtor vai garantir que a lista de tarefas sempre instancie uma lista vazi
 ![Classe Tarefa](images/list-arraylist-class-tarefa.png)
 A classe `Tarefa` por sua vez possue a propriedade `descricao` e se inicializa com um construtor para que sempre tenha uma descrição. Também implementamos os métodos ``get/set``.
 
-#### Operações Básicas
-
 Para exemplificar as operações básicas com ArrayList estaremos utilizando a abstração de uma lista de tarefas.
 
-##### Adicionando elementos ao ArrayList
+#### Adicionando elementos à List
 
 A operação mais básica de um ArrayList é a de adicionar elementos.
 
 ![Adicionando Elementos](images/list-arraylist-add.png)
 O ArrayList possui o método `.add()`, que neste caso vai pedir um objeto `Tarefa` que será instanciado e adicionado à lista.
 
-##### Removendo elementos de um ArrayList
+#### Removendo elementos de uma List
 
 Em nosso exemplo vamos remover um elemento pela sua descrição. Para fazer isso precisamos percorrer a lista procurando os elementos que correspondem à nossa descrição.
 
@@ -682,14 +680,14 @@ O ArrayList possui vários métodos para remover elementos de um array, para est
 Neste método vamos instanciar uma nova lista de tarefas `tarefasParaRemover` e vamos percorrer nossa `listaTarefas` comparando os valores da descrição fornecida para o método com o elemento `tarefa` percorrido no laço **forEach** utilizando os métodos `getDescricao().equalsIgnoreCase()`.
 Caso a descrição fornecida seja igual, vamos adicionar este elemento à nossa lista `tarefasParaRemover` e passamos esta lista como parâmetro para o método `.removeAll()` que se encarregará de remover da nossa lista `listaTarefas` todos os elementos que estão presentes em nossa lista `tarefasParaRemover`.
 
-##### Obtendo tamanho do ArrayList
+#### Obtendo tamanho da List
 
 Para obter o tamanho do ArrayList é muito simples.
 
 ![Tamanho do ArrayList](images/list-arraylist-size.png)
 Com um método que retorna inteiro apenas utilizamos o método `.size()` presente no ArrayList e tal método retornará o valor correspondente ao seu tamanho.
 
-##### Obtendo elementos de um ArrayList
+#### Obtendo elementos de uma List
 
 Se implementarmos um método `obterDescricoesTarefas()` e este apenas implementar um `sout` com a `listaTarefas`.
 
@@ -712,14 +710,14 @@ Agora temos o método `toString` que passa a retornar o objeto e suas propriedad
 ![Obtendo elementos corrigido](images/list-arraylist-obtendo-elementos-json.png)
 Ao chamar o método novamente podemos observar que foi impresso no console algo parecido com um arquivo JSON que está de acordo com o método que sobrescrevemos na classe `Tarefa`.
 
-#### Pesquisa
+### Pesquisa
 
 Para exemplificar a pesquisa em ArrayList vamos utilizar a abstração de um catálogo de livros.
 
 ![Catálogo de Livros](images/list-arraylist-construtor.png)
 Como no exemplo anterior, vamos definir um construtor para instanciar uma lista vazia e teremos um método `adicionarLivro` para inserir objetos nesta lista.
 
-##### Pesquisa por propriedade em ArrayList
+#### Pesquisa por propriedade em List
 
 Podemos realizar uma pesquisa dentro de um ArrayList por meio de uma propriedade contida nos objetos presentes na lista.
 
@@ -731,21 +729,21 @@ Por fim retornamos uma lista com todos os livros escritos por tal autor.
 ![Pesquisa por título](images/list-arraylist-pesquisa-titulo.png)
 A mesma lógica pode ser aplicada para uma pesquisa por título. Neste caso queremos apenas o primeiro valor que for encontrado dentro do ArrayList, então utilizamos um `break;` para interromper o laço e retornar o valor do livro que corresponde ao argumento passado para o método.
 
-##### Pesquisa por intervalo em ArrayList
+#### Pesquisa por intervalo em List
 
 Podemos fazer uma pesquisa por intervalo de tempo utilizando o operador lógico **`E`**.
 
 ![Pesquisa por intervalo de tempo](images/list-arraylist-pesquisa-intervalo.png)
 Como nos exemplos anteriores, utilizamos o laço forEach para percorrer a lista e para cada elemento que é maior ou igual ao `anoInicial` **`E`** menor ou igual ao `anoFinal` será adicionado à lista e o método retornará esta lista com os livros dentro deste intervalo.
 
-#### Ordenação
+### Ordenação
 
 Para exemplificar a ordenação de um ArrayList vamos utilizar a abstração de um sistema de cadastro de pessoas.
 
 ![Ordenação de pessoas](images/list-arraylist-ordenacao.png)
 Como nos exemplos anteriores, definimos o construtor para instanciar a lista e um método para adicionar pessoas.
 
-##### Ordenando ArrayList com interface Comparable
+#### Ordenando List com interface Comparable
 
 Neste exemplo estaremos implementando um método para ordenar uma lista de pessoas por idade.
 Para utilizar a interface Comparable primeiramente precisamos implementa-la em nossa classe Pessoa.
@@ -758,7 +756,7 @@ Utilizaremos também o Class wrapper `Integer` que possui o método `compare`, q
 Em nosso método `ordenarPorIdade()` vamos instanciar uma nova lista que diferente de outros casos não vai receber um ArrayList vazio, mas sim nossa `listaPessoas` que até o momento não está ordenada.
 Utilizando a classe `Collection` o método `.sort()` vai receber esta lista e como implementamos um `Comparable` em nossa classe, este método já sabe como será feita esta comparação, portanto o retorno será uma lista de pessoas ordenadas por idade.
 
-##### Ordenando ArrayList com Comparator
+#### Ordenando List com Comparator
 
 Neste exemplo estaremos implementando um método para ordenar a lista por altura utilizando um Comparator.
 Para utilizar o Comparator devemos implementar uma classe Comparator dentro da nossa classe `Pessoa`.
@@ -792,7 +790,7 @@ O método `.sort()` passa a receber a lista a ser ordenada e instanciamos um obj
 
 > ##### *LinkedHashSet*: O LinkedHashSet é uma implementação da interface Set que mantém a ordem de inserção dos elementos, além de usar uma tabela hash para obter um bom desempenho de busca. Ele é semelhante ao HashSet, mas também mantém uma lista duplamente vinculada que preserva a ordem de inserção. Isso permite que os elementos sejam percorridos na ordem em que foram adicionados. O LinkedHashSet é útil quando você precisa manter a ordem de inserção dos elementos e também ter um bom desempenho de busca.
 
-### HashSet
+### Operações Básicas com Set
 
 Para começarmos, vamos explorar as funções básicas de um HashSet.
 
@@ -804,9 +802,8 @@ Vamos definir um `Set` de `Convidado` e um construtor que vai instanciar um `Has
 ![Classe Convidado](images/list-set-convidado.png)
 A classe `Convidado` por sua vez possui as propriedades `nome` e `codigoConvite`, um construtor para atribuir valor à essas propriedades, métodos `get` para obter estes valores e o método `toString` sobrescrito para caso precisemos imprimir este set no console.
 
-#### Operações Básicas com HashSet
 
-##### Adicionando elementos ao HashSet
+#### Adicionando elementos ao Set
 
 Assim como no ArrayList, o HashSet também possui um método `.add()`, mas com algumas particularidades.
 
@@ -816,14 +813,14 @@ O método `.add()` no HashSet não possui argumento para adicionar um valor em d
 ![Método adicionarConvidado](images/list-set-add-convidado.png)
 Desta forma podemos adicionar um elemento ao HashSet da mesma forma que fazemos em um ArrayList.
 
-##### Removendo elementos de um HashSet pela propriedade
+#### Removendo elementos de um Set pela propriedade
 
 Relembrando que em um HashSet não pode haver elementos repetidos e a forma como vamos diferenciar estes elementos é por meio da propriedade `codigoConvite`.
 
 ![Removendo convidado por código do convite](images/list-set-remove-por-codigo.png)
 Vamos percorrer esse HashSet e ao encontrar o elemento que tem o código correspondente ao argumento passado pela função, este objeto será armazenado na variável `convidadoParaRemover` e assim este valor será passado para o método `.remove()` do nosso HashSet.
 
-##### Definindo chave primária no HashSet
+#### Definindo chave primária no Set
 
 Como mencionado anteriormente, o HashSet é um conjunto de objetos que não podem se repetir, portanto precisam de uma propriedade que o torne único. Em um contexto de Banco de Dados isso se chama chave primária. Apesar das outras propriedades ser possível repetir estas informações.
 
@@ -846,7 +843,7 @@ A IDE vai sobrescrever os dois métodos utilizando nossa propriedade `codigoConv
 A partir destes dois métodos sempre que for adicionado um novo convidado ao nosso HashSet, será verificado se já não existe este `codigoConvite` dentro do HashSet. Caso existir o mesmo não será adicionado e então o elemento original vai persistir.
 *Isso vai evitar que um individuo mal intencionado com convite clonado entre em nossa lista de convidados.*
 
-#### Pesquisa em HashSet
+### Pesquisa em Set
 
 Para este exemplo vamos utilizar a abstração de uma Agenda de contatos.
 
@@ -854,7 +851,7 @@ Para este exemplo vamos utilizar a abstração de uma Agenda de contatos.
 Definimos as a classe `Contato` com seus métodos Get e sobrescrevemos o método `toString`
 e a classe `AgendaContatos` com os métodos de adicionar e exibir.
 
-##### Pesquisando elementos por Propriedade em HashSet
+#### Pesquisando elementos por Propriedade em Set
 
 Primeiramente vamos definir em nossa classe `Contato` qual será a propriedade que será utilizada como chave primária.
 
@@ -865,7 +862,7 @@ Em nosso exemplo vamos definir que a chave primária será a propriedade `nome` 
 Implementando nosso método, podemos observar que seguimos uma estrutura muito parecida com os métodos de pesquisa em ArrayList. Neste método, queremos que retorne os contatos que começam com o nome por meio do método `.startsWith()`.
 Diferente o método `.equalsIgnoreCase()` que utilizamos anteriormente, neste caso vamos retornar todos os contatos que começam com o `nome` inserido em nosso argumento.
 
-##### Alterando elemento por Propriedade em HashSet
+#### Alterando elemento por Propriedade em Set
 
 Para atualizar um contato em nosso set, primeiramente vamos precisar definir um método set em nossa classe `Contato`.
 
@@ -876,14 +873,14 @@ Na implementação do nosso método, devemos passar como argumento exatamente o 
 ![Atualizando contato](images/set-atualizando-contato.png)
 Por fim após encontrar o nome desejado, utilizamos nosso setter para alterar e armazenamos este contato atualizado em nossa variável `contatoAtualizado` e a retornamos.
 
-#### Ordenação em HashSet
+### Ordenação em Set
 
 Para exemplificar a ordenação de elementos em HashSet, vamos abstrair um sistema de cadastro de produtos.
 
 ![Classes produto e cadastro de produto](images/set-ordenacao.png)
 Definimos as classes `Produto` e `CadastroProduto` e seus respectivos métodos get, nossa chave primária será o código do produto e implementamos um método para adicionar produtos.
 
-##### Ordenação por ordem alfabética em HashSet
+#### Ordenação por ordem alfabética em Set
 
 Para ordenar um set por ordem alfabética, primeiramente precisamos implementar um `Comparable` na nossa classe `Produto`.
 
@@ -895,7 +892,7 @@ Como vimos anteriormente, um HashSet não pode ser ordenado pois armazena os ele
 Como definimos o `Comparable` anteriormente, precisamos apenas passar uma Collection como parâmetro na instanciação destre TreeSet, pois definimos a ordem natural deste Set.
 Por fim retornamos este Set ordenado por ordem alfabética.
 
-##### Ordenação por valores em HashSet
+#### Ordenação por valores em Set
 
 Para ordenar um set por valores (neste caso preço), vamos primeiramente implementar um `Comparator` em nossa classe `Produto`.
 
@@ -946,7 +943,7 @@ Podemos remover elementos de um Map passando apenas o valor da chave deste eleme
 ![Removendo elemento de um Map](images/map-remover.png)
 Note que diferente das interfaces anteriores, em um map não é necessário percorre-lo para encontrar este elemento, pois cada chave é única dentro de um Map.
 
-#### Pesquisando elemento pela chave em um Map
+#### Encontrando elemento pela chave de um Map
 
 Para encontrar um elemento dentro de um Map utilizamos a chave para isso.
 
@@ -954,4 +951,60 @@ Para encontrar um elemento dentro de um Map utilizamos a chave para isso.
 A interface Map possui um método `.get()` que retorna o valor da chave passada a ela.
 Neste exemplo utilizamos para retornar o valor do número correspondente a chave.
 
+### Pesquisa em Map
 
+Para este exemplo vamos abstrair um sistema de estoque de produtos. Vamos utilizar um map com a chave sendo um código do produto e o valor um objeto produto.
+
+![Estoque de produtos](images/map-pesquisa-estoque.png)
+Note que em um map não é necessário definir um `equals() e hashCode()`, pois o Map já possui uma chave única.
+
+#### Somando valores de um Map
+
+Vamos implementar uma função que retorna o valor total de um estoque de produtos, portanto precisamos retornar o valor de um produto multiplicado pela sua quantidade e somado à mesma operação com todos estes valores.
+
+![Somando valores](images/map-calcular-valor-total.png)
+A interface Map possui um método chamado `.values()` que vai retornar apenas os valores contidos no map, pois para esta operação não nos interessa saber a chave destes valores.
+Por fim fazemos a operação de multiplicar a quantidade pelo preço do valor e armazenamos este valor na variável `valorTotalEstoque` que será retornada ao fim do laço de repetição.
+
+#### Obtendo maior e menor valor de um Map
+
+Levando em consideração que estamos trabalhando com um sistema de estoque, precisamos saber qual o maior valor dentre os produtos contidos neste Map.
+
+##### Maior valor
+
+![Maior valor do Map](images/map-maior-preco.png)
+Neste método vamos percorrer o Map e comparar o preço do produto com a nossa variável `maiorPreco` que recebe um `.MIN_VALUE` em sua inicialização, pois desta forma independente do valor que for atribuido primeiramente a esta variável sempre será um valor maior.
+A cada iteração do laço a variável `maiorPreco` recebe o valor do produto e a variável `produtoMaisCaro` recebe o objeto com o valor mais caro.
+Por fim o método retorna o objeto mais caro dentro do Map.
+
+##### Menor valor
+
+![Menor valor do Map](images/map-menor-preco.png)
+Da mesma forma que fizemos o método que retorna o maior valor, vamos apernas inverter a lógica para que o método retorne o menor valor contido no Map.
+
+### Ordenação de Map
+
+Para exemplificar a ordenação de valores em um Map, vamos abstrair uma agenda de eventos, sendo uma classe `Evento` com o nome do evento e nome da atração e uma classe `AgendaEventos` com um Map para armazenar as datas e respectivos eventos.
+
+![Agenda de eventos](images/map-ordenacao-agenda-eventos.png)
+
+#### Ordenando um Map em ordem crescente
+
+Podemos implementar um Comparator para definir a ordem que queremos este Map, mas a própria classe LocalDate possui um Comparator.
+
+![LocalDate comparator](images/map-localdate.png)
+A classe LocalDate implementa a interface ChronoLocalDate que por sua vez já possui um Comparable.
+
+![Exibindo em ordem](images/map-ordenacao-crescente.png)
+Portanto se passarmos nosso Map como parâmetro na instanciação do TreeMap, este já vai ter uma ordem natural implementada na sua chave e por se tratar de um TreeMap, será instanciado na ordem crescente naturalmente.
+
+#### Obtendo o próximo elemento mais recente em Map
+
+Vamos imaginar que queremos obter o evento mais próximo da sua data atual dentro deste Map.
+O Método não deve retornar um evento anterior a sua data atual, portanto devemos estabelecer esta regra de negócio.
+
+![Obtendo Próximo Evento](images/map-obtendo-proximo-evento.png)
+Utilizamos para fazer o laço de repetição o método `.Entry` da interface Map, tal método vai permitir que a cada iteração do laço tenhamos um par de chave/valor.
+Dessa forma conseguimos comparar com a nossa `dataAtual` então faremos a condicional se a data da entrada `entry` é igual a `dataAtual` OU está após `isAfter()` a nossa `dataAtual`.
+Feito isso vamos imprimir o evento mais próximo da nossa `dataAtual`.
+Por estarmos utilizando o TreeMap, este já vem naturalmente ordenado como foi feito no tópico anterior.
