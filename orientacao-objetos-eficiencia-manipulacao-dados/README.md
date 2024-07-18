@@ -1159,3 +1159,232 @@ public class OrdenacaoPessoa {
   }
 }
 ```
+## Functional Interface
+
+Qualquer interface com um SAM (Single Abstract Method) é uma interface funcional e sua implementação pode ser tratada
+como
+expressões lambda.
+
+### Consumer
+
+- `Consumer<T>`: Representa uma operação que aceita um argumento do tipo T e não retorna nenhum resultado. É utilizada
+  principalmente para realizar ações ou efeitos colaterais nos elementos do Stream sem modificar ou retornar um valor.
+
+```java
+public class ConsumerExample {
+  public static void main(String[] args) {
+    // Criar uma lista de números inteiros
+    List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
+
+    // Usar o Consumer com expressão lambda para imprimir números pares
+    Consumer<Integer> imprimirNumeroPar = numero -> {
+      if (numero % 2 == 0) {
+        System.out.println(numero);
+      }
+    };
+
+    // Usar o Consumer para imprimir números pares no Stream
+    numeros.stream_api().forEach(imprimirNumeroPar);
+  }
+}
+```
+![Utilizando stream API](images/stream-consumer.png)
+Utilizando o Stream API e uma Lambda Expression podemos apenas chamar o método `.forEach` e dentro dele como argumento passar uma Lambda Expression que recebe de argumento `numero` e então segue o corpo do consumer declarado anteriormente. Desta forma temos uma função declarada dentro de um argumento diminuindo severamente o número de linhas de código.
+
+
+### Supplier
+
+- `Supplier<T>`: Representa uma operação que não aceita nenhum argumento e retorna um resultado do tipo T. É comumente
+  usada para criar ou fornecer novos objetos de um determinado tipo.
+
+```java
+public class SupplierExample {
+  public static void main(String[] args) {
+    // Usar o Supplier com expressão lambda para fornecer uma saudação personalizada
+    Supplier<String> saudacao = () -> "Olá, seja bem-vindo(a)!";
+
+    // Usar o Supplier para obter uma lista com 5 saudações
+    List<String> listaSaudacoes = Stream.generate(saudacao)
+        .limit(5)
+        .collect(Collectors.toList());
+
+    // Imprimir as saudações geradas
+    listaSaudacoes.forEach(System.out::println);
+  }
+}
+```
+
+![Suplier com Stream API](images/stream-suplier.png)
+O Collector no Stream API pode ser substituido apenas pelo `.toList`, podendo assim resumir a declaração dele, desta forma a Stream API vai utilizar um Method Reference em seu `forEach` para imprimir no console uma mensagem declarada em nosso Supplier.
+Note que a Stream gera uma lista de strings sem a necessidade desta ser instanciada, passando apenas o seu limite de elementos e a Supplier.
+
+![Supplier em Lambda expression](images/stream-suplier-lambda.png)
+Utilizando uma Lambda Expression, podemos dispensar a declaração do Supplier e apenas declarar a Lambda Expression sem nenhum argumento com seu retorno implícito que neste caso é uma String.
+
+### Function
+
+- `Function<T, R>`: Representa uma função que aceita um argumento do tipo T e retorna um resultado do tipo R. É
+  utilizada para transformar ou mapear os elementos do Stream em outros valores ou tipos.
+
+```java
+public class FunctionExample {
+  public static void main(String[] args) {
+    // Criar uma lista de números inteiros
+    List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
+
+    // Usar a Function com expressão lambda para dobrar todos os números
+    Function<Integer, Integer> dobrar = numero -> numero * 2;
+
+    // Usar a função para dobrar todos os números no Stream e armazená-los em outra lista
+    List<Integer> numerosDobrados = numeros.stream_api()
+        .map(dobrar)
+        .collect(Collectors.toList());
+
+    // Imprimir a lista de números dobrados
+    numerosDobrados.forEach(System.out::println);
+  }
+}
+```
+
+![Lambda expression em function](images/stream-function.png)
+Utilizando Lambda Expression em nosso código podemos dispensar a declaração da funcion por apenas a Lambda Expression `numero -> numero * 2` que vai se encarregar de dobrar cada número e armazená-los em uma lista com a Stream API.
+
+### Predicate
+
+- `Predicate<T>`: Representa uma função que aceita um argumento do tipo T e retorna um valor booleano (verdadeiro ou
+  falso). É comumente usada para filtrar os elementos do Stream com base em alguma condição.
+
+```java
+public class PredicateExample {
+  public static void main(String[] args) {
+    // Criar uma lista de números inteiros
+    List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+    // Usar o Predicate com expressão lambda para filtrar números pares
+    Predicate<Integer> isPar = numero -> numero % 2 == 0;
+
+    // Usar o predicado para filtrar números pares no Stream e armazená-los em outra lista
+    List<Integer> numerosPares = numeros.stream_api()
+        .filter(isPar)
+        .collect(Collectors.toList());
+
+    // Imprimir a lista de números pares
+    numerosPares.forEach(System.out::println);
+  }
+}
+```
+
+![Lambda em Predicate](images/stream-predicate.png)
+Com a Lambda Expression já podemos implementar a lógica do Predicate dentro do nosso `.filter()` dispensando a sua declaração.
+
+### BinaryOperator
+
+- `BinaryOperator<T>`: Representa uma operação que combina dois argumentos do tipo T e retorna um resultado do mesmo
+  tipo T. É usada para realizar operações de redução em pares de elementos, como somar números ou combinar objetos.
+
+```java
+public class BinaryOperatorExample {
+  public static void main(String[] args) {
+    // Criar uma lista de números inteiros
+    List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
+
+    // Usar o BinaryOperator com expressão lambda para somar dois números inteiros
+    BinaryOperator<Integer> somar = (num1, num2) -> num1 + num2;
+
+    // Usar o BinaryOperator para somar todos os números no Stream
+    int resultado = numeros.stream_api()
+        .reduce(0, somar);
+
+    // Imprimir o resultado da soma
+    System.out.println("A soma dos números é: " + resultado);
+  }
+}
+```
+
+![BinaryOperator com Lambda](images/stream-binaryoperator.png)
+Podemos utilizar uma Lambda Expression para substituir a declaração do BinaryOperator e diminuir as linhas de código.
+
+![BinaryOperator com Method Reference](images/stream-binaryoperator-reference.png)
+Indo além podemos utilizar um Method Reference com a Class Wrapper `Integer` e utilizar o método `sum` para fazer a soma destes valores.
+
+
+> _Classe Anônima_:
+> A classe anônima em Java é uma classe não recebeu um nome e é tanto declarado e instanciado em uma única instrução.
+> Você deve considerar o uso de uma classe anônima sempre que você precisa para criar uma classe que será instanciado
+> apenas uma vez.
+
+### Class Optional
+
+O objetivo da classe Optional no Java é fornecer uma abordagem mais segura e expressiva para tratar casos em que um valor pode ser ausente (nulo). 
+Ela foi introduzida a partir do Java 8 para evitar o temido NullPointerException (NPE) que é comum quando se trabalha com referências nulas. Optional permite encapsular um valor que pode ser nulo dentro de um objeto Optional. Isso indica explicitamente que o valor pode ou não estar presente e requer que o código que deseja acessá-lo faça uma verificação explícita.
+<br>
+- `of(value)`: Cria um Optional contendo o valor fornecido. Se o valor for nulo, lançará uma exceção NullPointerException.
+
+```java
+Optional<String> optionalValue = Optional.of("Hello");
+System.out.println(optionalValue.get());
+```
+
+- `ofNullable(value)`: Cria um Optional contendo o valor fornecido, mas permite que o valor seja nulo.
+
+```java
+String nullableValue = null;
+Optional<String> optionalValue = Optional.ofNullable(nullableValue);
+System.out.println(optionalValue.isPresent());
+```
+- `empty()`: Retorna um Optional vazio (sem valor).
+
+```java
+Optional<String> optionalValue = Optional.empty();
+System.out.println(optionalValue.isPresent());
+```
+
+- `isPresent()`: Verifica se o Optional contém um valor não nulo.
+
+```java
+Optional<String> optionalValue = Optional.of("Hello");
+System.out.println(optionalValue.isPresent());
+```
+
+- `isEmpty()` (A partir do Java 11): Verifica se o Optional está vazio (não contém um valor não nulo).
+
+```java
+Optional<String> optionalValue = Optional.ofNullable(null);
+System.out.println(optionalValue.isEmpty());
+```
+
+- `get()`: Obtém o valor contido no Optional. Se o valor for nulo, lançará uma exceção NoSuchElementException.
+
+```java
+Optional<String> optionalValue = Optional.of("Hello");
+System.out.println(optionalValue.get());
+```
+
+- `orElse(defaultValue)`: Obtém o valor contido no Optional, ou retorna um valor padrão se o Optional estiver vazio
+
+```java
+Optional<String> optionalValue = Optional.ofNullable(null);
+String result = optionalValue.orElse("Default"); 
+System.out.println(result);
+```
+
+- `orElseGet(supplier)`: Obtém o valor contido no Optional, ou retorna um valor fornecido por um Supplier se o Optional estiver vazio.
+
+```java
+Optional<String> optionalValue = Optional.ofNullable(null);
+String result = optionalValue.orElseGet(() -> "Value from Supplier");
+System.out.println(result);
+```
+- `orElseThrow(exceptionSupplier)`: Obtém o valor contido no Optional, ou lança uma exceção fornecida por um Supplier se o Optional estiver vazio.
+
+```java
+Optional<String> optionalValue = Optional.ofNullable(null);
+String result = optionalValue.orElseThrow(() -> new RuntimeException("Value not present"));
+```
+
+- `ifPresent(consumer)`: Executa uma ação fornecida por um Consumer se o Optional contiver um valor.
+
+```java
+Optional<String> optionalValue = Optional.of("Hello");
+optionalValue.ifPresent(value -> System.out.println("Valor presente: " + value));
+```
