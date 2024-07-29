@@ -148,3 +148,75 @@ Também criaremos as tabelas `destinos` e `reservas`. Note que aqui utilizamos a
 
 ![Estrutura do banco de dados](images/criando-banco-dados-estrutura.png)
 Por fim teremos esta estrutura em nosso banco de dados.
+
+## Operações CRUD
+
+CRUD é o acrônimo para Create (criar), Read (ler), Update (atualizar) e Delete (apagar). Com essa explicação, já dá para intuir que o CRUD é uma sequência de funções de um sistema que trabalha com banco de dados, seja ele na sua máquina ou na nuvem.
+
+### Comando: INSERT
+
+Este é o comando responsável por inserir dados nas tabelas em nosso banco de dados. Tal comando corresponde ao **C (Create)** das operações CRUD.
+
+![Operação insert](images/crud-insert.png)
+A operação de **INSERT** serguirá esta estrutura, sendo a clausula `INSERT INTO` obrigatória em todas as operações de **INSERT**, entre parenteses seguirá a ordem de colunas estabelecida na criação da nossa tabela.
+Após definir a sequencia em que nossos dados serão inseridos, seguimos para a clausula `VALUES`, onde será inserido o dado em sí na sequencia definida na clausula anterior.
+
+![Usuário inserido](images/crud-usuario-inserido.png)
+Executando essa Query será inserido nosso primeiro usuário no banco.
+_Note que inserimos o **ID** manualmente pois não definimos auto-incremento para a coluna **ID** ainda._
+
+![Inserindo destino e reserva](images/crud-insert-destino-reserva.png)
+Vamos também inserir um `destino` e uma `reserva` em nosso banco.
+_Como também não definimos uma relação entre as tabelas, ainda é possível inserir dados que podem ainda não existir em nosso banco, como o **ID** de um usuário ou destino que ainda não existem no banco._
+
+![Dado em reserva](images/crud-insert-reservas.png)
+![Dado em destino](images/crud-insert-destinos.png)
+Ao executar a query teremos os seguintes dados inseridos nas tabelas `destinos` e `reservas`.
+
+### Comando: SELECT
+
+Este comando é responsável por realizar uma leitura no banco de dados. Tal comando corresponde ao **R (Read)** das operações CRUD.
+
+![Select em usuários](images/crud-select.png)
+A clausula `SELECT` sempre será seguida das colunas que queremos que o banco retorne, caso queira retornar todas as colunas da tabela selecionada utilizamos `*`.
+Já na clausula `FROM` é onde vamos indicar a tabela que queremos reslizar uma consulta.
+
+#### Comando: SELECT com WHERE
+
+Grande parte das consulas que fazemos em um banco de dados nos trazem uma grande quantidade de dados, portanto não faz sentido que façamos uma consulta no banco de dados completo. Para isso utilizamos a clausula `WHERE` para filtrar dentro de determinada condição apenas os dados que desejamos consultar no banco de dados.
+
+**Operadores do comando WHERE**
+* Igualdade (=)
+* Desigualdade (!= ou <>)
+* Maior que (>)
+* Menor que (<)
+* Maior ou igual (>=)
+* Menor ou igual (<=)
+* BETWEEN (entre um intervalo de valores)
+* IN (dentro de uma lista de valores)
+* LIKE (para buscas com padrões)
+    * O caractere % substitui zero ou mais caracteres.
+    * O caractere _ substitui um único caractere.
+* IS NULL / IS NOT NULL (verifica valores nulos)
+* AND (para combinar múltiplas condições)
+* OR (para combinar múltiplas condições)
+* NOT (para negar uma condição)
+
+![Inserindo dados para o Exemplo](images/crud-select-inserindo.png)
+Para nosso exemlo de `SELECT` com `WHERE` vamos inserir alguns dados em nossas tabelas para que nosso exemplo faça sentido.
+
+##### WHERE por id
+![Consultado por ID](images/crud-select-where-id.png)
+Neste exemplo utilizamos a clausula `WHERE` para encontrar todos os usuários com `id` 1 que existem na tabela `usuarios`. Tal comando servirá para encontrar qualquer informação específica no banco de dados.
+
+##### WHERE com LIKE
+![Consulta com LIKE](images/crud-select-like.png)
+A Clausula `LIKE` é utilizada para fazer uma consulta em que determinado tipo de dado esteja presente. Neste exemplo o banco nos retorna todos as linhas que tenham presentes a letra **S** na coluna nome.
+
+##### WHERE com AND e OR
+![Consulta com AND](images/crud-select-where-and.png)
+Podemos utilizar o operador **AND** para criar uma condição onde será selecionado tudo que tiver `id = 1` **E** `nome LIKE "%João%"`.
+A Clausula `LIKE` vai selecionar tudo que corresponder a string dentro do banco de dados.
+
+![Consulta com OR](images/crud-select-where-or.png)
+Já na condicional **OR** selecionamos todos os dados que correpondam ao `id = 1` **OU** ao `nome LIKE "%Maria%"`, nos retornando os dois valores que correspondem a esta condição.
