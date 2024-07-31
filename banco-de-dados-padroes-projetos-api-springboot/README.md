@@ -220,3 +220,128 @@ A Clausula `LIKE` vai selecionar tudo que corresponder a string dentro do banco 
 
 ![Consulta com OR](images/crud-select-where-or.png)
 Já na condicional **OR** selecionamos todos os dados que correpondam ao `id = 1` **OU** ao `nome LIKE "%Maria%"`, nos retornando os dois valores que correspondem a esta condição.
+
+### Comando: UPDATE
+
+Este comando é responsável por realizar uma atualização de algum dado dentro do banco de dados. Como o nome já diz, **UPDATE** corresponde à letra **U** do acrônimo CR**U**D.
+
+Ao fazer um **UPDATE** em um banco de dados, é **MUITO IMPORTANTE** que tenha a clausula **WHERE** acompanhada sempre.
+
+![Update em id](images/crud-update.png)
+Nesta query fizemos um Update em `id`. Na clausula **WHERE** note que fornecemos a ela um email, que corresponde ao email dentro de nosso banco de dados, portanto onde houver o email `pedro@example.com` o `id` receberá o valor `4`.
+
+**Tenha bastante cautela ao executar este tipo de query, pois ela pode causar perda permanete dos dados.**
+
+### Comando: DELETE
+
+Por fim temos a última operação do CRU**D**, **DELETE** é responsável por apagar um dado dentro de uma tabela.
+
+Ao fazer um **DELETE** em um banco de dados, é **MUITO IMPORTANTE** que tenha a clausula **WHERE** acompanhada sempre.
+
+![Delete Praia do Rosa](images/crud-delete.png)
+Nesta query vamos deletar pelo nome, portando a clausula `WHERE nome = "Praia do Rosa"` vai receber o caminho de onde este **DELETE** vai acontecer.
+
+**Tenha bastante cautela ao executar este tipo de query, pois ela pode causar perda permanete dos dados.**
+
+## Alterando e Excluindo Tabelas
+
+Apesar do banco de dados ter uma estrutura rígida eles possuem uma flexibilidade bem grande, podendo alterar e excluir tabelas para melhor modelagem deste banco.
+
+Vamos abstrair um problema para exemplificar os comando a seguir:
+
+**Problema**
+Usuários com endereços longos não estão conseguindo realizar cadastro no sistema
+
+Opções
+* Recriar a tabela, migrar os dados e excluir a tabela anterior
+* Alterar estrutura da tabela
+
+### Migrando dados de uma tabela
+
+![Criando nova tabela de usuários](images/alterando-tabelas-nova-usuarios.png)
+Vamos criar uma nova tabela para fazermos nossas alterações nela.
+
+![Migrando dados de uma tabela para outra](images/alterando-tabelas-migrando-dados.png)
+Também vamos migrar os dados da tabela `usuarios` para nossa nova tabela com o comando **INSERT INTO**
+
+### Comando: DROP TABLE
+
+O comando **DROP TABLE** é usado no SQL para remover uma tabela existente de um banco de dados relacional.
+_**Ele exclui permanetemente a tabela.**_
+
+Após nos certificarmos que os dados da tabela antiga foram migrados para a nova tabela.
+
+Podemos então utilizar o **DROP TABLE** para excluir a antiga tabela ´usuarios´.
+![Excluindo tabela](images/alterando-tabelas-drop.png)
+Será mostrada uma mensagem perguntando se tem certeza, pois se trata de uma ação permanente.
+
+### Comando: ALTER TABLE
+
+A cláusula **ALTER TABLE** é usada no SQL para modificar a estrutura de uma tabela existente em um banco de dados relacional.
+
+Ela permite:
+* Adicionar, alterar ou excluir colunas
+* Modificar as restrições, índices
+* Renomear a tabela entre outras alterações
+
+Após migrados os dados da antiga para a nossa nova tabela, podemos por fim alterar o seu nome.
+
+![Alterando nome da tabela](images/alterando-tabelas-alter.png)
+Utilizamos a cláusula **RENAME** para definir o novo nome da nossa tabela.
+
+![Verificando estrutura](images/alterando-tabelas-estrutura.png)
+Se verificarmos a estrutura do nosso banco, podemos observar que o `varchar` de `endereco` agora comporta 100 caracteres ao invés de 50 como definido anteriormente.
+
+![Alterando tamanho](images/alterando-tabelas-alter-collumn.png)
+Também podemos alterar apenas o tamanho da coluna, com a cláusua `MODIFY COLUMN` passando o nome da tabela e sua alteração.
+
+## Chaves Primárias e Estrangeiras
+
+**Chaves Primárias**
+Chaves primárias são campos de dados únicos que servem para garantir a integridade dos nossos dados de forma que não haja dados duplicados dentro da nossa tabela.
+
+* Identifica exclusivamente
+* Não pode conter valores nulos (NULL)
+* Uma tabela pode ter apenas uma chave primária
+
+**Chaves Estrangeiras**
+Chaves estrangeiras são chaves responsáveis por relacionar uma tabela a outra dentro do banco de dados. Ela é usada para estabelecer e manter a integridade dos dados entre tabelas relacionadas.
+
+* Pode ser nula (NOT NULL) **registro órfão*
+* É possível ter mais de uma (ou nenhuma) em uma tabela
+
+**Restrições das chaves estrangeiras**
+São restrições que especificam o que acontece com aquele registro quando um registro pai é apagado, atualizado, etc.
+
+* ON DELETE especifica o que acontece com os registros dependentes quando um registro pai é excluido.
+* ON UPDATE define o comportamento dos registros dependentes quando um registro pai é atualizado.
+* CASCATE, SET NULL, SET DEFAULT e RESTRICT
+
+### Chave Primária
+
+Vamos criar novas tabelas e definir suas chaves primárias.
+![Criando tabelas e Migrando dados](images/pk-fk-migrando-dados.png)
+Aqui criamos as tabelas com o `id` sendo nossa chave primária, note que ao migrar os dados na cláusula `INSERT INTO`, não houve a necessidade de migrar o campo `id`, pois o mesmo foi definido como `AUTO_INCREMENT`.
+
+![Alterando chave primária](images/pk-fk-alterando-pk.png)
+Outra opção seria apenas alterar o campo `id` o adicionando como chave primária.
+
+Estas alterações garantem que cada dado dentro do banco de dados tenha um `id` único e que nunca se repete.
+
+### Chave Estrangeira
+
+Vamos agora criar uma tabela e definir as chaves estrangeiras.
+![Criando tabelas e migrando dados](images/pk-fk-criando-fk.png)
+A cláusula `FOREIGN KEY` é responsável por definir qual coluna será a chave estrangeira e com `REFERENCES` definimos a que coluna de outra tabela ela está se relacionando.
+Atente-se para o nome da sua `CONSTRAINT` pois se outra tabela já for criada com o nome dela havera um conflito de chave duplicada.
+
+![Alterando chave estrangeira](images/pk-fk-alterando-fk.png)
+Também é possível alterar uma tabela transformando a coluna em uma coluna de chave estrangeira.
+
+#### Restrições de chaves estrangeiras
+
+Vamos adicionar uma restrição de exclusão em cascata a uma chave estrangeira.
+
+![Adicionando restrição em cascata](images/pk-fk-restricao.png)
+Primeiramente vamos apagar a restrição já existente para só então adicionarmos uma nova e ao final desta adição utilizamos a cláusula `ON DELETE CASCADE`.
+Desta forma se excluirmos um usuário no banco de dados, todos os dados relacionados a ele em nosso banco será deletado também.
