@@ -345,3 +345,57 @@ Vamos adicionar uma restrição de exclusão em cascata a uma chave estrangeira.
 ![Adicionando restrição em cascata](images/pk-fk-restricao.png)
 Primeiramente vamos apagar a restrição já existente para só então adicionarmos uma nova e ao final desta adição utilizamos a cláusula `ON DELETE CASCADE`.
 Desta forma se excluirmos um usuário no banco de dados, todos os dados relacionados a ele em nosso banco será deletado também.
+
+## Normalizaçãao de dados
+
+A normalização de dados é um processo no qual se organiza e estrutura um banco de dados relacional de forma a eliminar redundâncias e anomalizas, garantindo a consistência e integridade dos dados.
+
+Para exemplificar esta sessão vamos asbtrair um problema na modelagem do nosso banco de dados até o momento.
+
+**Problema:**
+Após colocarmos nosso banco de dados em produção, surgiu a necessidade de criar uma nova feature com a função de sugerir destinos com base nas cidades dos usuários.
+Podemos notar que em nossa tabela, deixamos que o campo de endereço seja escrito livremente sem distinção do que é cidade, estado e endereço da casa.
+![Dados não normalizados](images/normalizacao.png)
+
+### Formas Normais
+
+#### 1FN: Atomicidade de dados
+A 1FN estabelece que cada valor em uma tabela deve ser atômico, ou seja, indivisível. Nenhum campo deve conter múltiplos valores ou listas. No seu caso, o campo `endereco` contém múltiplos valores, como rua, número, cidade e estado. Para atingir a 1FN, precisamos dividir o campo `endereco` em colunas separadas.
+
+![1FN em diagrama](images/normalizacao-1fn.png)
+
+##### Normalizando tabela de endereços
+
+Para normalizar nossa tabela `endereco` de acordo com o diagrama, vamos criar as colunas correspondentes.
+
+![Criando colunas](images/normalizacao-1fn-colunas.png)
+
+Após a criação das colunas, é necessário um script para migrar nossos dados da coluna `endereco` para as novas colunas criadas. Assim como numa linguagem de programação, utilizaremos `SUBSTRING` para fazermos este script.
+
+![Utilizando Substring](images/normalizacao-1fn-script-substring.png)
+
+Como seguimos um padrão de endereço separado por vírgula, podemos escrever um script que identifique este padrão. Tal script vai primeiro identificar o que está atrás da primeira vírgula e atribuir à coluna `rua` e assim sucessivamente até chegar na última separação.
+
+![Apagando coluna](images/normalizacao-1fn-drop-column.png)
+
+Por fim apagamos nossa coluna `encereco` para finalizar nossa normalização dos dados em colunas separadas garantindo a atomicidade dos dados e estabelecendo a **1FN**.
+
+#### 2FN
+
+Formas Normais são sempre incrementais, portanto para que uma tabela seja normalizada de acordo com a segunda forma normal (2FN) ela obrigatóriamente tem de estar de acordo com a primeira forma normal (1FN).
+
+A 2FN garante que os atributos não chave dependam totalmente da chave primária, evitando dependências parciais.
+
+* A 2FN estabelece que uma tabela deve estar na 1FN
+* Todos os atributos não chave devem depender totalmente da chave primária.
+
+Se sua tabela tem uma **chave primária simples** não existe a possibilidade de termos dependência parcial e portanto ela já se encontra na 2FN.
+
+#### 3FN
+
+A 3FN elimina dependências transitivas entre os atributos não chave, garantindo que cada atributo não chave dependa apenas da chave primária, não havendo dependências indiretas entre eles.
+
+* Uma tabela deve estar na 2FN
+* Nenhuma coluna não-chave deve depender de outra coluna não-chave
+
+Nosso exemplo: Relação Estado -> Cidade
