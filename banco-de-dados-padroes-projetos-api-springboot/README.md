@@ -399,3 +399,18 @@ A 3FN elimina dependências transitivas entre os atributos não chave, garantind
 * Nenhuma coluna não-chave deve depender de outra coluna não-chave
 
 Nosso exemplo: Relação Estado -> Cidade
+
+# Consultas avançadas
+
+Em sistemas mais complexos precisamos faazer consultas no banco de dados de modo  que as tabelas sejam agregadas umas as outras.
+
+## Junções: JOINs
+
+São usadas no SQL para combinar daddos de duass ou mais tabelas relacionadas em uma única consulta.
+
+### INNER JOIN
+
+Retorna apenas as linhas que têm corresspondência em ambas as tabelas envolvidas na junção. A junção é feita com  baase em uma condição de igualdade especificaada na cláusula ON.
+
+![Consulta inner join](images/consulta-avancada-inner-join.png)
+Nesta consulta estamos mesclando todos os dados de `id` de `usuario` que correspondem a `id_usuario` na tabela de `reservas`.
