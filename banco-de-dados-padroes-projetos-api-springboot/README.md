@@ -414,3 +414,30 @@ Retorna apenas as linhas que têm corresspondência em ambas as tabelas envolvid
 
 ![Consulta inner join](images/consulta-avancada-inner-join.png)
 Nesta consulta estamos mesclando todos os dados de `id` de `usuario` que correspondem a `id_usuario` na tabela de `reservas`.
+
+![Consulta com destinos](images/consulta-avancada-inner-join-1.png)
+Também podemos trazer dados de `destinos` relacionanddo a coluna `reservas`.
+
+### LEFT JOIN
+
+Retorna todas as linhas da tabela à  esquerda da junção e as linhas correspondentes da tabela à direita. Se não houver correspondência, os valores da tabela à direita serão NULL.
+
+![Left Join com usuário sem relação](images/consulta-avancada-left-join.png)
+Diferente do INNER JOIN, o LEFT JOIN vai sim retornar valores que não fazem relação com outras tabelas, trazendo esses dados como NULL.
+
+### RIGHT JOIN
+
+Retorna todas as linhas da tabela à direita da junção e as linhas correspondentes da tabela à esquerda. Se  não houver correspondência, os valores da tabela à esquerda serão NULL.
+
+![Right Join com destino sem reserva](images/consulta-avancada-right-join.png)
+Ao contrario do LEFT JOIN, no INNER JOIN temos os valores a direita sendo consultados e onde não tem relação ficará NULL a esquerda.
+
+## Sub Consultas
+
+Elas permitem realizar consultas mais complexas permitindo que você use o resultado de uma consulta como entrada para outra consulta.
+
+![Consulta NOT IN](images/consulta-avancada-not-in.png)
+Aqui temos uma consulta que vai nos retornar o `id` que não está presente em reservas. Nos retornando neste caso o destino que não possui reservas.
+
+![COnsulta count](images/consulta-avancada-count.png)
+Aqui temos outro exemplo  de sub consulta, desta vez nos retornando  a quantidade de reservas que  cada usuário tem.
