@@ -441,3 +441,46 @@ Aqui temos uma consulta que vai nos retornar o `id` que não está presente em r
 
 ![COnsulta count](images/consulta-avancada-count.png)
 Aqui temos outro exemplo  de sub consulta, desta vez nos retornando  a quantidade de reservas que  cada usuário tem.
+
+## Funções agregadas
+
+São  funções responsáveis  por realizar  um  pre processamento ou calculo em nossas consultas no banco de dados.
+
+Essas funções são:
+* **COUNT**: Conta o  número de  registros
+* **SUM**: Soma os valores de uma coluna numérica
+* **AVG**: Calcula a média dos valores de uma coluna numérica
+* **MIN**: Retorna o valor mínimo de uma coluna
+* **MAX**: Retorna o valor máximo de uma coluna
+
+### COUNT
+Utilizamos o COUNT quando precisamos contar valores presentes nas tabelas do banco de dados.
+
+![Contando número de usuários](images/funcoes-agregadoras-count.png)
+Aqui temos uma consulta na qual  contamos o número de usuários presentes no banco de dados.
+
+![Combinando com inner join](images/funcoes-agregadoras-count-inner-join.png)
+Combinando esta consulta com um INNER JOIN, temos o número de usuários que possuem reservas.
+
+### MAX
+Utilizamos o MAX quando precisamos que banco  nos retorne o maior valor  contido na tabela.
+
+![Retornando maior idade](images/funcoes-agregadoras-max.png)
+Nesta consulta utilizamos a função `TIMESTAMPDIFF`  que realiza a diferença entre as datas, neste caso estamos  realizando a diferença de ano entre a idade do usuário no banco com o  ano atual do sistema, retornando assim a idade do usuário.
+
+## Agrupamento de Resultados
+
+O agrupamento de resultados serve para que possamos agrupar os valores de uma tabela de acordo com uma determinada condição.
+
+![Agrupando reservas pela quantidade de  destinos](images/agrupamento-resultados.png)
+Nesta consulta  agrupados as reservas por destinos e contamos  quantos destinos  cada reserva possui.
+
+## Ordenação de Resultados
+
+A ordenação é uma função muito comum bastante utilizada em consultas no banco de dados, na  maioria das vezes queremos que os dados sejam retornados de forma ordenada, seja de forma crescente ou decrescente.
+
+![Ordenando de forma ascendente](images/agrupamento-resultados-order-by.png)
+Por padrão o ORDER BY sempre vai nos trazer os valores de forma ascendente, ou seja do menor para o maior.
+
+![Ordenando  de forma descendente](images/agrupamento-resultados-order-by-desc.png)
+Caso seja necessário que a ordenação seja de forma descendente, utilizamos a cláusula `DESC` para que o  ressultado  seja do  maior para o menor.
