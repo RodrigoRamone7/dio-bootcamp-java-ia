@@ -484,3 +484,149 @@ Por padrão o ORDER BY sempre vai nos trazer os valores de forma ascendente, ou 
 
 ![Ordenando  de forma descendente](images/agrupamento-resultados-order-by-desc.png)
 Caso seja necessário que a ordenação seja de forma descendente, utilizamos a cláusula `DESC` para que o  ressultado  seja do  maior para o menor.
+
+
+# Spring Framework
+
+Framework open source desenvolvido para plataforma Java baseado nos padrões de projetos inversão de controle e injeção de dependência.
+
+Sua estrutura é composta por módulos afins de  reduzir a  complexidade  no desenvolvimento de aplicações  simples e corporativas.
+
+![Spring Framework Runtime](images/spring-framework-runtime.png)
+
+## Inversão de Controle
+
+Inversion of Control  ou IoC, trata-se  do redirecionamento de fluxo de execução  de um  código retiranddo parcialmente o controle sobre ele  e  delegando-o para um container.
+O principal propósito é minimizar o acoplamento de código.
+
+**Sem IoC**
+![Sem o IoC](images/sem-ioc.png)
+Antes do IoC nossa aplicação era inicializada  e teriamos de inicializar o objeto antes  de  utiliza-lo.
+
+**Com IoC**
+![Com IoC](images/com-ioc.png)
+Com o IoC inicializamos nossa aplicação e é criado um container, este container já possui todos os objetos inicializados e prontos para serem utilizados.
+
+## Injeção de Dependências
+
+Injeção de dependência  é um  padrão de desenvolvimento com a finalizade de manter baixo  o nível de acoplamento entre  módulos de um sistema.
+
+![Injeção de dependências](images/injecao-dependecias.png)
+
+## Beans
+
+O objeto que é instanciado (criado), montado e gerenciado por um container através do  princípio da inversão de controle.
+
+## Scopes
+
+![Scopes](images/scopes.png)
+
+### Singleton
+
+O contêiner do Spring IoC define apenas uma instância do objeto.
+
+### Prototype
+
+Será criado um novo objeto a cada solicitação ao container.
+
+### HTTP - Request
+
+Um bean será criado para cada requisição HTTP.
+*Os objetos existirão enquanto a requisição estiver em execução.*
+
+### HTTP - Session
+
+Um bean será criado para  a sessão de usuário.
+*Precisamos acessar a mesma solicitação duas vezes para testar os escopos específicos da web.*
+
+### HTTP - Global
+
+Ou Application Scope cria um bean para o ciclo de vida do contexto da aplicação.
+*Objetos compartilhados por toda a aplicação.*
+
+## Autowired
+
+Uma anotação (indicação) onde deverá ocorrer  uma  injeção  automática de  dependência.
+
+* **byName**: É buscado  um método set que corresponde ao nome do Bean.
+* **byType**: É considerado  o  tipo de classe para inclusão do Bean.
+* **byContrutor**: Usamos o construtor para incluir a dependência.
+
+# Spring Boot
+
+Enquanto que o Spring Framework é baseado no padrão de injeção de dependências, o Springboot foca na configuração automática.
+
+Dado  que a maior parte das configurações  necessárias para o início de um projeto são sempre as mesmas, por que não iniciar um projeto com todas estas configurações já definidas?
+
+## Starters
+
+Starters são descritores de dependências  que  diminuem a verbosidade do código em que declaramos quais dependências iremos utilizar em nosso projeto.
+
+![Starters](images/starters.png)
+Com o Spring Framework precisariamos ddeclarar cada dependência utilizada pelo nossso  projeto, mas com os Starters utilizamos  o Descritor de dependência onde declaramos apenas que utilizamos  o Spring Boot e ele se encarrega de carregar todas as dependências utilizadas. 
+Com os Starters devemos nos preocupar apenas com as  dependências que não são garantidas  pelo framework,  como a dependência de **MySQL** declarada.
+
+**Benefícios**
+* Coesão
+* Versões compatíveis
+* Otimização  de  tempo
+* Configuração simples
+* Foco no  negócio
+
+### Alguns Starters
+
+__Spring-boot-starter-*__
+* **data-jpa**: Integração ao banco de dados via JPA - Hibernate.
+* **data-mongodb**: Integração  com banco de dados MongoDB.
+* **web**: Inclusão do container Tomcat para aplicações REST.
+* **web-services**: Webservices baseados  na arquitetura SOAP.
+* **batch**: Implementação de JOBs de processos.
+* **test**:  Disponibilização de  recursos para testes unitários como JUnit.
+* **openfeign**: Client HTTP baseado em interfaces.
+* **actuator**: Gerenciamento de monitoramento da aplicação.
+
+## Primeiros Passos
+
+Vamos agora para os primeiros passos para conhecer um projeto Spring Boot
+
+### Criando projeto com Initializr
+
+Precisamos primeiramente acessar o site do [Spring Initializr](https://start.spring.io/).
+
+![Spring Initializr](images/spring-initializr.png)
+Nesta página é onde vamos definir a estrutura do  nosso projeto, linguagem utilizada, a versão do framework, dependências (Starters) e dos dados de nosso projeto conforme a necessidade de cada projeto.
+
+### Importando o projeto maven no IntelliJ
+
+Após gerar o projeto Spring Boot, teremos um arquivo zip com nosso projeto onde podemos extraí-lo em uma pasta e assim faremos a abertura deste projeto no IntelliJ.
+
+![Abrindo projeto](images/spring-abrindo-projeto.png)
+
+### Conhecendo a estrutura Spring Boot
+
+Em nosso projeto teremos uma estrutura padrão de um proveto Maven, onde nossos arquivos principais estarão  localizados em na pasta `src/main/java`.
+
+![Projeto maven](images/spring-projeto-maven.png)
+Dentro do  arquivo principal teremos a indicação que este é  um  projeto Spring Boot `@SpringBootApplication` e a declaração de inicialização do  projeto `SpringApplication.run(PrimeirosPassosApplication.class, args)`.
+
+![pom.xml](images/spring-pom-xml.png)
+Teremos também o arquivo `pom.xml` que é onde ficam nossas Starters com as declarações de dependências do  nosso projeto.
+
+![TDD](images/spring-tdd.png)
+Também teremos uma classe para testes que será utilizada  em contextos de TDD.
+
+![Propriedades](images/spring-properties.png)
+Por fim teremos um arquivo de propriedades `application.properties` que vai armazenar toda  configuração da nossa aplicaçao,  como portas de servidor, connection  string para banco de dados etc.
+
+### Bean e CommandLineRunner
+
+Diferente da maneira convecional que  utilizamos no projeto Java, não mais devemos utilizar o `new` para inicialização de objetos, pois em um contexto de inversão de controle e injeção de dependências, estas operações não são mais utilizadas.
+
+![Classe Calculadora](images/spring-calculadora.png)
+Aqui temos a forma  errada de utilizar o Spring Boot, pois como vimos anteriormente, não mais devemos utilizar o `new` para inicializar objetos.
+
+![Aplicação Spring](images/spring-myapp.png)
+Ao invés de colocarmos nossa iteração junto da  inicialização do Spring Boot, vamos criar uma classe `MyApp` que funcionará como  nossa classe main.
+Esta classe vai precisar implementar a  interface funcional `CommandLineRunner` que vai  implementar o  método `run()` como seu método principal.
+Portanto agora diremos que a classe `MyApp` é um `@Component` e nossa `Calculadora` também é um `@Component` podendo assim ser chamada pela nossa inicialização `MyApp` em `private Calculadora calculadora;`.
+Por fim através da notação `@Autowired` é onde realizamos a injeção de dependências, onde o Spring Boot entende que meu componente `MyApp` depende do componente `Calculadora` e assim podemos executar nossa aplicação obtendo o resultado da operação de soma.
